@@ -1,0 +1,2399 @@
+
+/* =====================================================
+   IG CUSTOM PRINTING — PREMIUM PRODUCT CATALOG
+   Styles only the new middle content.
+===================================================== */
+
+.ig-catalog-page {
+  --ig-orange: #ff5a12;
+  --ig-orange-dark: #e94b06;
+  --ig-ink: #171717;
+  --ig-paper: #f7f6f3;
+  --ig-muted: #77736e;
+  --ig-line: #e6e2dc;
+  --ig-display: "Manrope", "Inter", Arial, sans-serif;
+  --ig-body: "Inter", Arial, sans-serif;
+
+  color: var(--ig-ink);
+  background: var(--ig-paper);
+  font-family: var(--ig-body);
+  overflow: clip;
+}
+
+.ig-catalog-page *,
+.ig-catalog-page *::before,
+.ig-catalog-page *::after {
+  box-sizing: border-box;
+}
+
+.ig-catalog-page img {
+  display: block;
+  max-width: 100%;
+}
+
+.ig-catalog-page a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.ig-catalog-page button,
+.ig-catalog-page input {
+  font: inherit;
+}
+
+.ig-catalog-page button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.ig-catalog-page [hidden] {
+  display: none !important;
+}
+
+
+/* =====================================================
+   01. PROMOTION HERO
+===================================================== */
+
+.ig-promo {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: 1fr 0.92fr;
+  min-height: 490px;
+  color: #fff;
+  background: #171717;
+  overflow: hidden;
+}
+
+.ig-promo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse at 18% 85%,
+      rgba(255, 90, 18, 0.13),
+      transparent 45%
+    );
+}
+
+.ig-promo__content {
+  position: relative;
+  z-index: 2;
+  align-self: center;
+  padding: 68px 7% 66px max(7%, calc((100vw - 1280px) / 2));
+}
+
+.ig-promo__eyebrow,
+.ig-section-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 25px;
+  color: var(--ig-orange);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  line-height: 1.5;
+}
+
+.ig-promo__eyebrow-line,
+.ig-section-eyebrow > span {
+  display: inline-block;
+  width: 22px;
+  height: 2px;
+  flex: 0 0 auto;
+  background: var(--ig-orange);
+}
+
+.ig-promo__season {
+  margin: 0 0 13px;
+  color: #a9a9a9;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2.2px;
+}
+
+.ig-promo h1 {
+  max-width: 620px;
+  margin: 0;
+  color: #fff;
+  font-family: var(--ig-display);
+  font-size: clamp(46px, 5.4vw, 76px);
+  font-weight: 800;
+  letter-spacing: -4px;
+  line-height: 1.04;
+}
+
+.ig-promo h1 span {
+  display: block;
+  color: var(--ig-orange);
+}
+
+.ig-promo__description {
+  max-width: 465px;
+  margin: 22px 0 28px;
+  color: #bcbcbc;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.ig-promo__actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 22px;
+}
+
+.ig-promo__button,
+.ig-catalog-cta__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 48px;
+  padding: 0 17px;
+  border: 1px solid var(--ig-orange);
+  border-radius: 3px;
+  background: var(--ig-orange);
+  color: #fff !important;
+  font-size: 11px;
+  font-weight: 700;
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.ig-promo__button:hover,
+.ig-catalog-cta__button:hover {
+  transform: translateY(-2px);
+  border-color: var(--ig-orange-dark);
+  background: var(--ig-orange-dark);
+}
+
+.ig-promo__button span,
+.ig-catalog-cta__button span {
+  font-size: 17px;
+  transition: transform 0.25s ease;
+}
+
+.ig-promo__button:hover span,
+.ig-catalog-cta__button:hover span {
+  transform: translate(3px, -2px);
+}
+
+.ig-promo__secondary {
+  color: #ddd !important;
+  font-size: 11px;
+  border-bottom: 1px solid #777;
+  padding-bottom: 5px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.ig-promo__secondary:hover {
+  color: var(--ig-orange) !important;
+  border-color: var(--ig-orange);
+}
+
+.ig-promo__trust {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 43px;
+}
+
+.ig-promo__trust > span:first-child {
+  color: var(--ig-orange);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.ig-promo__trust-line {
+  width: 36px;
+  height: 1px;
+  background: #555;
+}
+
+.ig-promo__trust p {
+  margin: 0;
+  color: #888;
+  font-size: 8px;
+  letter-spacing: 1.7px;
+}
+
+.ig-promo__visual {
+  position: relative;
+  min-width: 0;
+  min-height: 490px;
+  overflow: hidden;
+  background: #222;
+}
+
+.ig-promo__visual > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.77) saturate(0.8);
+  transition: transform 0.8s ease;
+}
+
+.ig-promo__visual:hover > img {
+  transform: scale(1.035);
+}
+
+.ig-promo__image-shade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, #171717 0%, transparent 27%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.72), transparent 60%),
+    linear-gradient(135deg, rgba(255, 90, 18, 0.1), transparent 50%);
+}
+
+.ig-promo__offer-card {
+  position: absolute;
+  right: clamp(18px, 5%, 65px);
+  bottom: 65px;
+  width: min(290px, 75%);
+  padding: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(19, 19, 19, 0.78);
+  backdrop-filter: blur(13px);
+  -webkit-backdrop-filter: blur(13px);
+}
+
+.ig-promo__offer-label {
+  display: block;
+  margin-bottom: 15px;
+  color: var(--ig-orange);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.ig-promo__offer-card > strong {
+  display: block;
+  font-family: var(--ig-display);
+  font-size: 27px;
+  font-weight: 800;
+  letter-spacing: -1.3px;
+  line-height: 1.15;
+}
+
+.ig-promo__offer-card > strong span {
+  display: block;
+  color: var(--ig-orange);
+}
+
+.ig-promo__offer-card > p {
+  margin: 13px 0 18px;
+  color: #b5b5b5;
+  font-size: 9px;
+  line-height: 1.6;
+}
+
+.ig-promo__offer-card > a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding-top: 13px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.ig-promo__offer-card > a span {
+  color: var(--ig-orange);
+  font-size: 16px;
+}
+
+.ig-promo__image-index {
+  position: absolute;
+  right: 24px;
+  bottom: 22px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 8px;
+  letter-spacing: 1.6px;
+}
+
+
+/* =====================================================
+   02. CATALOG INTRODUCTION
+===================================================== */
+
+.ig-catalog-intro {
+  display: grid;
+  grid-template-columns: 1.1fr 0.7fr;
+  align-items: end;
+  gap: 45px;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 78px 5.5% 37px;
+}
+
+.ig-section-eyebrow {
+  margin-bottom: 16px;
+}
+
+.ig-catalog-intro h2 {
+  margin: 0;
+  color: var(--ig-ink);
+  font-family: var(--ig-display);
+  font-size: clamp(34px, 4.1vw, 53px);
+  font-weight: 800;
+  letter-spacing: -2.7px;
+  line-height: 1.1;
+}
+
+.ig-catalog-intro h2 span {
+  color: var(--ig-orange);
+}
+
+.ig-catalog-intro__description {
+  max-width: 430px;
+  margin: 0 0 5px;
+  color: var(--ig-muted);
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+
+/* =====================================================
+   03. SEARCH AND CATEGORY FILTERS
+===================================================== */
+
+.ig-catalog-controls {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 5.5% 23px;
+}
+
+.ig-product-search {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: min(100%, 420px);
+  min-height: 48px;
+  padding: 0 14px;
+  border: 1px solid #dedad4;
+  border-radius: 3px;
+  background: #fff;
+  color: #777;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ig-product-search:focus-within {
+  border-color: var(--ig-orange);
+  box-shadow: 0 0 0 3px rgba(255, 90, 18, 0.08);
+}
+
+.ig-product-search__icon {
+  font-size: 24px;
+  line-height: 1;
+  transform: rotate(-20deg);
+}
+
+.ig-product-search input {
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--ig-ink);
+  font-size: 11px;
+}
+
+.ig-product-search input::placeholder {
+  color: #999;
+}
+
+.ig-product-search__hint {
+  color: #aaa;
+  font-size: 8px;
+  letter-spacing: 1px;
+}
+
+.ig-product-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 17px;
+}
+
+.ig-category-button {
+  padding: 11px 15px;
+  border: 1px solid #e1ddd7;
+  border-radius: 3px;
+  background: transparent;
+  color: #595550;
+  cursor: pointer;
+  font-size: 10px;
+  font-weight: 600;
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.ig-category-button:hover {
+  border-color: #aaa49c;
+  color: #171717;
+}
+
+.ig-category-button.is-active {
+  border-color: var(--ig-ink);
+  background: var(--ig-ink);
+  color: #fff;
+}
+
+
+/* =====================================================
+   04. COLLECTION HEADER
+===================================================== */
+
+.ig-product-collection {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 5.5% 80px;
+}
+
+.ig-product-collection__heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 18px 0;
+  border-top: 1px solid var(--ig-line);
+  color: #77736e;
+}
+
+.ig-product-collection__heading > p {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+}
+
+.ig-product-collection__heading-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ig-orange);
+}
+
+.ig-product-collection__heading > span {
+  font-size: 8px;
+  letter-spacing: 1.4px;
+}
+
+
+/* =====================================================
+   05. PREMIUM PRODUCT GRID
+===================================================== */
+
+.ig-product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 34px 19px;
+  align-items: stretch;
+}
+
+.ig-product-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  border: 1px solid #e9e5df;
+  border-radius: 4px;
+  background: #fff;
+  overflow: hidden;
+  box-shadow: 0 3px 12px rgba(24, 22, 19, 0.025);
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+  animation: ig-card-appear 0.55s both;
+}
+
+.ig-product-card:nth-child(2) {
+  animation-delay: 0.04s;
+}
+
+.ig-product-card:nth-child(3) {
+  animation-delay: 0.08s;
+}
+
+.ig-product-card:nth-child(4) {
+  animation-delay: 0.12s;
+}
+
+.ig-product-card:hover {
+  transform: translateY(-5px);
+  border-color: #d6cfc5;
+  box-shadow: 0 17px 35px rgba(24, 22, 19, 0.09);
+}
+
+@keyframes ig-card-appear {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ig-product-card__image {
+  position: relative;
+  display: block;
+  aspect-ratio: 1 / 1.03;
+  overflow: hidden;
+  background: #e8e5e0;
+  isolation: isolate;
+}
+
+.ig-product-card__image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.22),
+    transparent 40%
+  );
+  opacity: 0.65;
+  transition: opacity 0.35s ease;
+}
+
+.ig-product-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition:
+    transform 0.65s cubic-bezier(0.2, 0.7, 0.2, 1),
+    filter 0.4s ease;
+}
+
+.ig-product-card:hover .ig-product-card__image img {
+  transform: scale(1.055);
+  filter: saturate(1.06);
+}
+
+.ig-product-card:hover .ig-product-card__image::after {
+  opacity: 1;
+}
+
+.ig-product-card__badge {
+  position: absolute;
+  top: 13px;
+  left: 13px;
+  z-index: 2;
+  padding: 7px 9px;
+  border-radius: 2px;
+  background: var(--ig-orange);
+  color: #fff;
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+}
+
+.ig-product-card__number {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+  color: #fff;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+}
+
+.ig-product-card__image-action {
+  position: absolute;
+  right: 13px;
+  bottom: 13px;
+  z-index: 2;
+  display: grid;
+  width: 35px;
+  height: 35px;
+  place-items: center;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--ig-ink);
+  font-size: 17px;
+  opacity: 0;
+  transform: translateY(6px);
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.ig-product-card:hover .ig-product-card__image-action,
+.ig-product-card__image:focus-visible .ig-product-card__image-action {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ig-product-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 17px 15px 15px;
+}
+
+.ig-product-card__category {
+  margin: 0 0 9px;
+  color: #8b857d;
+  font-size: 7px;
+  font-weight: 600;
+  letter-spacing: 1.15px;
+  line-height: 1.5;
+}
+
+.ig-product-card__body h3 {
+  margin: 0;
+  color: #191919;
+  font-family: var(--ig-display);
+  font-size: clamp(14px, 1.15vw, 17px);
+  font-weight: 750;
+  letter-spacing: -0.45px;
+  line-height: 1.4;
+}
+
+.ig-product-card__body h3 a {
+  transition: color 0.2s ease;
+}
+
+.ig-product-card__body h3 a:hover {
+  color: var(--ig-orange);
+}
+
+.ig-product-card__description {
+  margin: 9px 0 20px;
+  color: #77736e;
+  font-size: 10px;
+  line-height: 1.75;
+}
+
+.ig-product-card__footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid #efede9;
+}
+
+.ig-product-card__price {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ig-product-card__price > span {
+  color: #918b83;
+  font-size: 7px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+}
+
+.ig-product-card__price > strong {
+  color: var(--ig-orange);
+  font-family: var(--ig-display);
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+  line-height: 1.2;
+}
+
+.ig-product-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #d8d3cc;
+  color: #292929;
+  font-size: 9px;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.ig-product-card__link > span {
+  color: var(--ig-orange);
+  font-size: 14px;
+  transition: transform 0.2s ease;
+}
+
+.ig-product-card__link:hover {
+  border-color: var(--ig-orange);
+  color: var(--ig-orange);
+}
+
+.ig-product-card__link:hover > span {
+  transform: translate(2px, -2px);
+}
+
+.ig-product-empty {
+  padding: 65px 15px;
+  text-align: center;
+}
+
+.ig-product-empty h3 {
+  margin: 0 0 8px;
+  font-family: var(--ig-display);
+  font-size: 23px;
+}
+
+.ig-product-empty p {
+  margin: 0;
+  color: var(--ig-muted);
+  font-size: 12px;
+}
+
+.ig-product-disclaimer {
+  margin: 30px 0 0;
+  color: #99938b;
+  font-size: 9px;
+  line-height: 1.8;
+  text-align: center;
+}
+
+
+/* =====================================================
+   06. CUSTOM ORDER CTA
+===================================================== */
+
+.ig-catalog-cta {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 65px;
+  padding: 70px max(7%, calc((100vw - 1200px) / 2));
+  overflow: hidden;
+  background: #171717;
+  color: #fff;
+}
+
+.ig-catalog-cta::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: -170px;
+  bottom: -310px;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  background: rgba(255, 90, 18, 0.13);
+  filter: blur(90px);
+  pointer-events: none;
+}
+
+.ig-catalog-cta__content,
+.ig-catalog-cta__details {
+  position: relative;
+  z-index: 1;
+}
+
+.ig-catalog-cta__content .ig-section-eyebrow {
+  margin-bottom: 17px;
+}
+
+.ig-catalog-cta__content h2 {
+  max-width: 580px;
+  margin: 0;
+  color: #fff;
+  font-family: var(--ig-display);
+  font-size: clamp(34px, 4vw, 52px);
+  font-weight: 800;
+  letter-spacing: -2.6px;
+  line-height: 1.12;
+}
+
+.ig-catalog-cta__content h2 span {
+  display: block;
+  color: var(--ig-orange);
+}
+
+.ig-catalog-cta__content > p {
+  max-width: 450px;
+  margin: 19px 0 24px;
+  color: #aaa;
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+.ig-catalog-cta__button {
+  min-width: 190px;
+}
+
+.ig-catalog-cta__details {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-left: 35px;
+  border-left: 1px solid #393939;
+}
+
+.ig-catalog-cta__detail {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.ig-catalog-cta__detail > span {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid rgba(255, 90, 18, 0.55);
+  border-radius: 50%;
+  color: var(--ig-orange);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.ig-catalog-cta__detail p {
+  margin: 0;
+}
+
+.ig-catalog-cta__detail strong,
+.ig-catalog-cta__detail small {
+  display: block;
+}
+
+.ig-catalog-cta__detail strong {
+  color: #f2f2f2;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.ig-catalog-cta__detail small {
+  margin-top: 5px;
+  color: #888;
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+
+/* =====================================================
+   07. TABLET RESPONSIVENESS
+===================================================== */
+
+@media (max-width: 1100px) {
+  .ig-promo__content {
+    padding-left: 6%;
+    padding-right: 5%;
+  }
+
+  .ig-promo h1 {
+    font-size: clamp(45px, 5.7vw, 65px);
+    letter-spacing: -3px;
+  }
+
+  .ig-promo__trust {
+    margin-top: 32px;
+  }
+
+  .ig-catalog-intro,
+  .ig-catalog-controls,
+  .ig-product-collection {
+    padding-left: 4%;
+    padding-right: 4%;
+  }
+
+  .ig-product-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px 16px;
+  }
+
+  .ig-product-card__body {
+    padding: 15px 13px 13px;
+  }
+
+  .ig-product-card__footer {
+    gap: 10px;
+  }
+
+  .ig-catalog-cta {
+    padding-left: 6%;
+    padding-right: 6%;
+    gap: 40px;
+  }
+}
+
+
+/* =====================================================
+   08. MOBILE RESPONSIVENESS
+===================================================== */
+
+@media (max-width: 760px) {
+  .ig-promo {
+    grid-template-columns: 1fr;
+  }
+
+  .ig-promo__content {
+    padding: 53px 6% 37px;
+  }
+
+  .ig-promo__eyebrow {
+    margin-bottom: 22px;
+  }
+
+  .ig-promo h1 {
+    font-size: clamp(46px, 10.5vw, 67px);
+    letter-spacing: -2.8px;
+  }
+
+  .ig-promo__description {
+    max-width: 500px;
+    margin: 18px 0 24px;
+    font-size: 12px;
+    line-height: 1.85;
+  }
+
+  .ig-promo__actions {
+    gap: 18px;
+  }
+
+  .ig-promo__button {
+    min-height: 46px;
+  }
+
+  .ig-promo__secondary {
+    font-size: 10px;
+  }
+
+  .ig-promo__trust {
+    margin-top: 30px;
+  }
+
+  .ig-promo__visual {
+    min-height: 330px;
+  }
+
+  .ig-promo__visual > img {
+    object-position: center 43%;
+  }
+
+  .ig-promo__image-shade {
+    background:
+      linear-gradient(0deg, rgba(0, 0, 0, 0.76), transparent 75%),
+      linear-gradient(135deg, rgba(255, 90, 18, 0.1), transparent 55%);
+  }
+
+  .ig-promo__offer-card {
+    right: 6%;
+    bottom: 45px;
+    width: min(270px, 82%);
+    padding: 19px;
+  }
+
+  .ig-promo__offer-card > strong {
+    font-size: 24px;
+  }
+
+  .ig-promo__image-index {
+    right: 6%;
+    bottom: 17px;
+    font-size: 7px;
+  }
+
+  .ig-catalog-intro {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 55px 5% 27px;
+  }
+
+  .ig-section-eyebrow {
+    margin-bottom: 13px;
+    font-size: 9px;
+  }
+
+  .ig-catalog-intro h2 {
+    font-size: clamp(33px, 8vw, 44px);
+    letter-spacing: -1.9px;
+  }
+
+  .ig-catalog-intro__description {
+    max-width: 540px;
+    font-size: 11px;
+  }
+
+  .ig-catalog-controls {
+    padding: 0 5% 18px;
+  }
+
+  .ig-product-search {
+    width: 100%;
+    min-height: 46px;
+  }
+
+  .ig-product-categories {
+    flex-wrap: nowrap;
+    gap: 8px;
+    margin-right: -5.5%;
+    padding: 0 5.5% 7px 0;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: thin;
+  }
+
+  .ig-category-button {
+    flex: 0 0 auto;
+    padding: 10px 13px;
+    font-size: 9px;
+  }
+
+  .ig-product-collection {
+    padding: 0 5% 55px;
+  }
+
+  .ig-product-collection__heading {
+    padding: 15px 0;
+  }
+
+  .ig-product-collection__heading > p {
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+
+  .ig-product-collection__heading > span {
+    font-size: 7px;
+    letter-spacing: 0.8px;
+  }
+
+  .ig-product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px 12px;
+  }
+
+  .ig-product-card__image {
+    aspect-ratio: 0.88 / 1;
+  }
+
+  .ig-product-card__badge {
+    top: 8px;
+    left: 8px;
+    padding: 6px 7px;
+    font-size: 6px;
+    letter-spacing: 0.7px;
+  }
+
+  .ig-product-card__number {
+    top: 9px;
+    right: 9px;
+    font-size: 8px;
+  }
+
+  .ig-product-card__image-action {
+    right: 8px;
+    bottom: 8px;
+    width: 30px;
+    height: 30px;
+    opacity: 1;
+    transform: none;
+    font-size: 15px;
+  }
+
+  .ig-product-card__body {
+    padding: 12px 10px 11px;
+  }
+
+  .ig-product-card__category {
+    min-height: 20px;
+    margin-bottom: 7px;
+    font-size: 6px;
+    letter-spacing: 0.7px;
+  }
+
+  .ig-product-card__body h3 {
+    font-size: 13px;
+    letter-spacing: -0.35px;
+    line-height: 1.4;
+  }
+
+  .ig-product-card__description {
+    min-height: 54px;
+    margin: 7px 0 13px;
+    font-size: 9px;
+    line-height: 1.7;
+  }
+
+  .ig-product-card__footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding-top: 11px;
+  }
+
+  .ig-product-card__price > span {
+    font-size: 6px;
+  }
+
+  .ig-product-card__price > strong {
+    font-size: 19px;
+  }
+
+  .ig-product-card__link {
+    font-size: 9px;
+  }
+
+  .ig-product-disclaimer {
+    margin-top: 25px;
+    font-size: 9px;
+  }
+
+  .ig-catalog-cta {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 48px 6%;
+  }
+
+  .ig-catalog-cta__content h2 {
+    font-size: clamp(34px, 8vw, 44px);
+    letter-spacing: -1.8px;
+  }
+
+  .ig-catalog-cta__content > p {
+    font-size: 11px;
+  }
+
+  .ig-catalog-cta__details {
+    gap: 19px;
+    padding: 25px 0 0;
+    border-top: 1px solid #393939;
+    border-left: 0;
+  }
+}
+
+
+/* =====================================================
+   09. SMALL MOBILE SCREENS
+===================================================== */
+
+@media (max-width: 380px) {
+  .ig-promo__content {
+    padding-right: 5%;
+    padding-left: 5%;
+  }
+
+  .ig-promo h1 {
+    font-size: 43px;
+    letter-spacing: -2.2px;
+  }
+
+  .ig-promo__actions {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .ig-promo__visual {
+    min-height: 290px;
+  }
+
+  .ig-product-grid {
+    gap: 22px 9px;
+  }
+
+  .ig-product-card__body {
+    padding: 11px 8px 9px;
+  }
+
+  .ig-product-card__body h3 {
+    font-size: 12px;
+  }
+
+  .ig-product-card__description {
+    min-height: 64px;
+    font-size: 8px;
+  }
+
+  .ig-product-card__price > strong {
+    font-size: 18px;
+  }
+
+  .ig-product-card__link {
+    font-size: 8px;
+  }
+}
+
+
+/* =====================================================
+   10. ACCESSIBILITY / REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .ig-catalog-page *,
+  .ig-catalog-page *::before,
+  .ig-catalog-page *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+
+
+
+
+
+
+/* IG CATALOG — prevent horizontal page overflow */
+html,
+body {
+  max-width: 100%;
+}
+
+.ig-catalog-page {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.ig-catalog-page img {
+  max-width: 100%;
+}
+
+
+
+
+
+
+
+/* ==========================================
+   IG CUSTOM DESIGN STUDIO — HERO
+========================================== */
+
+.ig-studio,
+.ig-studio * {
+  box-sizing: border-box;
+}
+
+.ig-studio {
+  --studio-orange: #ff5200;
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr 0.95fr;
+  align-items: stretch;
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  min-width: 0;
+  min-height: 760px;
+  overflow: hidden;
+  background: #111;
+  color: #fff;
+  font-family: "Inter", Arial, sans-serif;
+}
+
+.ig-studio button,
+.ig-studio input {
+  font: inherit;
+}
+
+.ig-studio button,
+.ig-studio a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.ig-studio a {
+  text-decoration: none;
+}
+
+.ig-studio button {
+  cursor: pointer;
+}
+
+/* LEFT INTRO */
+
+.ig-studio__intro {
+  z-index: 2;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  min-width: 0;
+  padding: 64px 24px 64px clamp(28px, 4.5vw, 76px);
+  background:
+    radial-gradient(ellipse at 0 100%, #47200e 0, transparent 45%),
+    linear-gradient(110deg, #111, #171513);
+}
+
+.ig-studio__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin: 0 0 30px;
+  color: var(--studio-orange);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.ig-studio__eyebrow span {
+  width: 28px;
+  height: 2px;
+  background: var(--studio-orange);
+}
+
+.ig-studio__intro h1 {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(36px, 3.2vw, 58px);
+  line-height: 1.04;
+  letter-spacing: -2.5px;
+  font-weight: 800;
+}
+
+.ig-studio__intro h1 span {
+  color: var(--studio-orange);
+}
+
+.ig-studio__description {
+  max-width: 450px;
+  margin: 24px 0 0;
+  color: #c5c5c5;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.ig-studio__actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 22px;
+  margin-top: 28px;
+}
+
+.ig-studio__primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 18px 20px;
+  background: var(--studio-orange);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.7px;
+  transition: background 0.2s ease;
+}
+
+.ig-studio__primary:hover {
+  background: #e84900;
+  color: #fff;
+}
+
+.ig-studio__primary span {
+  font-size: 20px;
+}
+
+.ig-studio__secondary {
+  padding-bottom: 7px;
+  border-bottom: 1px solid #777;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.ig-studio__benefits {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-top: 48px;
+}
+
+.ig-studio__benefits > div {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.ig-studio__benefits > div > span {
+  color: var(--studio-orange);
+  font-size: 27px;
+}
+
+.ig-studio__benefits p {
+  margin: 0;
+  color: #bdbdbd;
+  font-size: 8px;
+  line-height: 1.6;
+  letter-spacing: 1px;
+}
+
+.ig-studio__benefits > i {
+  width: 1px;
+  height: 30px;
+  background: #555;
+}
+
+/* CENTER PRODUCT STAGE */
+
+.ig-studio__stage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 760px;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 42%, #a94a16 0, #482516 28%, #171311 62%, #111 100%);
+}
+
+.ig-studio__glow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 60%;
+  background: linear-gradient(transparent, #ff681c, transparent);
+  transform: rotate(35deg);
+  box-shadow: 0 0 35px 8px #ff520055;
+}
+
+.ig-studio__platform {
+  position: absolute;
+  bottom: 7%;
+  left: 8%;
+  width: 84%;
+  height: 14%;
+  border-radius: 50%;
+  background: linear-gradient(#373331, #111);
+  border: 1px solid #5e5148;
+  box-shadow: 0 8px 0 #29211c, 0 12px 28px #000;
+}
+
+.ig-studio__product {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 540px;
+  padding: 0 2%;
+  transform: translateY(-1%);
+}
+
+.ig-studio__product > img {
+  display: block;
+  width: 100%;
+  max-height: 620px;
+  object-fit: contain;
+  mix-blend-mode: normal;
+  filter: drop-shadow(0 25px 20px #0008);
+}
+
+/* ARTWORK OVERLAY */
+
+.ig-studio__artwork-area {
+  position: absolute;
+  top: 34%;
+  left: 50%;
+  width: 27%;
+  height: 28%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.ig-studio__artwork-area > img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 2px #0004);
+}
+
+.ig-studio__stage-label {
+  position: absolute;
+  bottom: 4%;
+  left: 50%;
+  width: max-content;
+  max-width: 90%;
+  transform: translateX(-50%);
+  color: #bcb4ae;
+  font-size: 8px;
+  letter-spacing: 1.5px;
+}
+
+.ig-studio__stage-label span {
+  color: var(--studio-orange);
+}
+
+/* RIGHT CUSTOMIZER PANEL */
+
+.ig-studio__panel {
+  align-self: center;
+  z-index: 3;
+  min-width: 0;
+  margin: 22px 18px 22px 0;
+  padding: 22px 18px;
+  border: 1px solid #343434;
+  border-radius: 15px;
+  background: linear-gradient(145deg, #171717, #101010);
+  box-shadow: 0 15px 50px #0007;
+}
+
+.ig-studio__steps {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 23px;
+}
+
+.ig-studio__steps > div {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #aaa;
+  font-size: 9px;
+  white-space: nowrap;
+}
+
+.ig-studio__steps > div > span {
+  display: grid;
+  place-items: center;
+  flex: 0 0 30px;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #444;
+  border-radius: 50%;
+  font-size: 11px;
+}
+
+.ig-studio__steps > .is-current > span {
+  border-color: var(--studio-orange);
+  background: var(--studio-orange);
+  color: #fff;
+}
+
+.ig-studio__steps > .is-current {
+  color: #fff;
+}
+
+/* UPLOAD AREA */
+
+.ig-studio__upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 175px;
+  padding: 20px 10px;
+  border: 1px dashed #626262;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.ig-studio__upload:hover {
+  border-color: var(--studio-orange);
+  background: #ff520008;
+}
+
+.ig-studio__upload input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.ig-studio__upload input:focus-visible + .ig-studio__upload-icon {
+  outline: 2px solid var(--studio-orange);
+}
+
+.ig-studio__upload-icon {
+  color: #aaa;
+  font-size: 33px;
+  line-height: 1;
+}
+
+.ig-studio__upload strong {
+  font-size: 12px;
+}
+
+.ig-studio__upload small {
+  color: #aaa;
+  font-size: 9px;
+  line-height: 1.5;
+}
+
+.ig-studio__choose-file {
+  padding: 11px 20px;
+  border-radius: 3px;
+  background: var(--studio-orange);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+}
+
+/* PRODUCT CHOICES */
+
+.ig-studio__section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin: 22px 0 13px;
+}
+
+.ig-studio__section-heading strong,
+.ig-studio__options > div > strong {
+  font-size: 12px;
+}
+
+.ig-studio__section-heading a {
+  color: var(--studio-orange);
+  font-size: 9px;
+  white-space: nowrap;
+}
+
+.ig-studio__products {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 7px;
+}
+
+.ig-studio__products button {
+  min-width: 0;
+  padding: 9px 3px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  background: #242424;
+  color: #fff;
+  font-size: 9px;
+  transition: border-color 0.2s ease;
+}
+
+.ig-studio__products button.is-selected {
+  border-color: var(--studio-orange);
+  box-shadow: 0 0 0 1px var(--studio-orange);
+}
+
+.ig-studio__product-icon {
+  display: grid;
+  place-items: center;
+  height: 65px;
+  margin-bottom: 6px;
+  border-radius: 4px;
+  background: linear-gradient(145deg, #303030, #191919);
+  color: #eee;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+/* COLOR AND POSITION */
+
+.ig-studio__options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.ig-studio__options > div {
+  min-width: 0;
+}
+
+.ig-studio__options > div > strong {
+  display: block;
+  margin-bottom: 12px;
+}
+
+.ig-studio__colors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.ig-studio__colors button {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 2px solid #333;
+  border-radius: 50%;
+  background: var(--swatch);
+}
+
+.ig-studio__colors button.is-selected {
+  outline: 2px solid var(--studio-orange);
+  outline-offset: 2px;
+}
+
+.ig-studio__positions {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.ig-studio__positions button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+  padding: 7px 2px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  background: #171717;
+  color: #aaa;
+  font-size: 9px;
+}
+
+.ig-studio__positions button > span {
+  font-size: 20px;
+}
+
+.ig-studio__positions button.is-selected {
+  border-color: var(--studio-orange);
+  color: var(--studio-orange);
+}
+
+/* PREVIEW BUTTON */
+
+.ig-studio__preview-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 52px;
+  margin-top: 23px;
+  padding: 12px;
+  border: 0;
+  border-radius: 4px;
+  background: var(--studio-orange);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  transition: background 0.2s ease;
+}
+
+.ig-studio__preview-button:hover {
+  background: #e84900;
+}
+
+.ig-studio__preview-button span {
+  font-size: 19px;
+}
+
+.ig-studio__message {
+  margin: 8px 0 0;
+  color: #ff986d;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+/* LAPTOPS */
+
+@media (max-width: 1250px) {
+  .ig-studio {
+    grid-template-columns: 0.9fr 0.8fr 1fr;
+    min-height: 700px;
+  }
+
+  .ig-studio__intro {
+    padding-left: 28px;
+  }
+
+  .ig-studio__intro h1 {
+    font-size: clamp(34px, 3.4vw, 48px);
+    letter-spacing: -2px;
+  }
+
+  .ig-studio__stage {
+    min-height: 700px;
+  }
+
+  .ig-studio__panel {
+    margin-right: 12px;
+    padding: 17px 12px;
+  }
+
+  .ig-studio__steps > div {
+    font-size: 8px;
+    gap: 4px;
+  }
+
+  .ig-studio__steps > div > span {
+    flex-basis: 25px;
+    width: 25px;
+    height: 25px;
+  }
+
+  .ig-studio__benefits {
+    gap: 8px;
+  }
+}
+
+/* TABLET: STACK INTRO, STAGE, PANEL */
+
+@media (max-width: 900px) {
+  .ig-studio {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .ig-studio__intro {
+    grid-column: 1 / -1;
+    padding: 55px 6%;
+  }
+
+  .ig-studio__intro h1 {
+    font-size: clamp(42px, 7vw, 64px);
+  }
+
+  .ig-studio__stage {
+    min-height: 600px;
+  }
+
+  .ig-studio__panel {
+    align-self: center;
+    margin: 24px 20px 24px 0;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 620px) {
+  .ig-studio {
+    grid-template-columns: 1fr;
+  }
+
+  .ig-studio__intro {
+    grid-column: auto;
+    padding: 48px 22px 34px;
+  }
+
+  .ig-studio__intro h1 {
+    font-size: clamp(39px, 10vw, 55px);
+    letter-spacing: -2px;
+  }
+
+  .ig-studio__description {
+    font-size: 13px;
+  }
+
+  .ig-studio__actions {
+    gap: 17px;
+  }
+
+  .ig-studio__benefits {
+    gap: 13px;
+    margin-top: 34px;
+  }
+
+  .ig-studio__benefits p {
+    font-size: 7px;
+  }
+
+  .ig-studio__stage {
+    min-height: 440px;
+  }
+
+  .ig-studio__product {
+    max-width: 390px;
+  }
+
+  .ig-studio__platform {
+    bottom: 9%;
+  }
+
+  .ig-studio__panel {
+    margin: 0;
+    padding: 22px 17px;
+    border-radius: 0;
+    border-right: 0;
+    border-left: 0;
+  }
+
+  .ig-studio__steps > div {
+    font-size: 9px;
+  }
+
+  .ig-studio__steps > div > span {
+    flex-basis: 28px;
+    width: 28px;
+    height: 28px;
+  }
+
+  .ig-studio__upload {
+    min-height: 165px;
+  }
+
+  .ig-studio__product-icon {
+    height: 72px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ig-studio *,
+  .ig-studio *::before,
+  .ig-studio *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+
+
+
+
+
+
+
+
+/* CUSTOM STUDIO — DRAGGABLE ARTWORK */
+
+.ig-studio__artwork-area {
+  pointer-events: auto;
+  touch-action: none;
+  cursor: grab;
+  overflow: visible;
+}
+
+.ig-studio__artwork-area:active {
+  cursor: grabbing;
+}
+
+.ig-studio__artwork-area > img {
+  max-width: none;
+  max-height: none;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: auto;
+}
+
+
+
+
+
+/* Artwork interaction */
+.ig-studio__artwork-area {
+  pointer-events: none;
+}
+
+.ig-studio__artwork-area img {
+  pointer-events: auto;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.ig-studio__artwork-area img:active {
+  cursor: grabbing;
+}
+
+
+
+
+
+
+
+/* Adobe-style artwork selection and resize handles */
+.ig-studio__artwork-area {
+  overflow: visible;
+}
+
+
+
+.ig-artwork-editor {
+  position: relative;
+  display: block;
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  line-height: 0;
+  border: 1px solid #1685ff;
+  cursor: default;
+  touch-action: none;
+  pointer-events: auto;
+}
+
+
+
+.ig-artwork-editor[hidden] {
+  display: none !important;
+}
+
+
+.ig-artwork-editor img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: none;
+  max-height: none;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.ig-resize-handle {
+  position: absolute;
+  z-index: 5;
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  border: 1px solid #1685ff;
+  border-radius: 1px;
+  pointer-events: auto;
+}
+
+.ig-resize-nw { top: -5px; left: -5px; cursor: nwse-resize; }
+.ig-resize-ne { top: -5px; right: -5px; cursor: nesw-resize; }
+.ig-resize-sw { bottom: -5px; left: -5px; cursor: nesw-resize; }
+.ig-resize-se { bottom: -5px; right: -5px; cursor: nwse-resize; }
+
+
+
+
+/* Artwork selection state */
+.ig-artwork-editor {
+  border: 1px solid transparent;
+}
+
+.ig-artwork-editor.is-selected {
+  border-color: #1685ff;
+}
+
+.ig-artwork-editor:not(.is-selected) .ig-resize-handle {
+  display: none;
+}
+
+
+
+
+
+/* IG STUDIO — Slightly raise product on mobile */
+@media (max-width: 600px) {
+  .ig-studio__product {
+    transform: translateY(-15px);
+  }
+}
+
+
+
+
+
+
+/* IG STUDIO — Product position adjustments */
+
+/* Desktop: move the T-shirt slightly down */
+@media (min-width: 601px) {
+  .ig-studio__product {
+    transform: translateY(10px);
+  }
+}
+
+/* Mobile: move the T-shirt slightly up */
+@media (max-width: 600px) {
+  .ig-studio__product {
+    transform: translateY(-35px);
+  }
+}
+
+
+
+
+
+
+/* IG STUDIO — SMART ARTWORK CURSORS */
+.ig-studio .ig-artwork-editor {
+  cursor: grab;
+}
+
+.ig-studio .ig-artwork-editor:active {
+  cursor: grabbing;
+}
+
+.ig-studio .ig-resize-handle {
+  cursor: nwse-resize;
+}
+
+.ig-studio .ig-resize-ne,
+.ig-studio .ig-resize-sw {
+  cursor: nesw-resize;
+}
+
+
+
+
+
+
+
+/* SAVE CURRENT SIDE DESIGN */
+#studio-save-side {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 48px;
+  margin-top: 16px;
+  padding: 12px;
+  border: 1px solid #f26522;
+  border-radius: 4px;
+  background: transparent;
+  color: #f26522;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.7px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+#studio-save-side:hover,
+#studio-save-side.is-saved {
+  background: #f26522;
+  color: #fff;
+}
+
+
+
+
+
+/* COMBINED DESIGN PREVIEW */
+#studio-combined-preview {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  overflow-y: auto;
+  padding: 40px 20px;
+  background: #111;
+  color: #fff;
+  isolation: isolate;
+overscroll-behavior: contain;
+}
+
+#studio-combined-preview[hidden] {
+  display: none !important;
+}
+
+#studio-combined-preview h2 {
+  margin: 0 0 24px;
+  color: #ff5200;
+  text-align: center;
+  font-size: 28px;
+}
+
+#studio-combined-preview p {
+  color: #ccc;
+  text-align: center;
+}
+
+
+
+
+
+
+/* FRONT + BACK PREVIEW LAYOUT */
+#studio-close-preview {
+  display: block;
+  margin: 0 0 24px auto;
+  padding: 10px 18px;
+  border: 1px solid #ff5200;
+  border-radius: 6px;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+
+.studio-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.studio-preview-card {
+  padding: 18px;
+  border: 1px solid #333;
+  border-radius: 12px;
+  background: #191919;
+}
+
+.studio-preview-card h3 {
+  margin: 0 0 16px;
+  color: #ff5200;
+  text-align: center;
+  font-size: 16px;
+}
+
+#studio-preview-front,
+#studio-preview-back {
+  min-height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 650px) {
+  #studio-combined-preview {
+    padding: 20px 12px;
+  }
+
+  .studio-preview-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  #studio-preview-front,
+  #studio-preview-back {
+    min-height: 220px;
+  }
+}
+
+
+
+
+/* T-SHIRT MOCKUP PREVIEW */
+.studio-preview-shirt {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.studio-preview-shirt__mockup {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.studio-preview-shirt__artwork {
+  position: absolute;
+  display: block;
+  max-width: none;
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+
+
+
+body:has(#studio-combined-preview:not([hidden])) {
+  overflow: hidden;
+}
+
+
+
+
+
+/* PREVIEW ACTION BUTTONS */
+.studio-preview-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  width: 100%;
+  max-width: 1000px;
+  margin: 28px auto 10px;
+}
+
+#studio-download-preview,
+#studio-close-preview {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 0 24px;
+  border: 1px solid #ff5200;
+  border-radius: 7px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+#studio-download-preview {
+  background: #ff5200;
+  color: #fff;
+}
+
+#studio-download-preview:hover {
+  background: #e84900;
+  transform: translateY(-2px);
+}
+
+#studio-download-preview:disabled {
+  opacity: 0.65;
+  cursor: wait;
+  transform: none;
+}
+
+#studio-close-preview {
+  background: transparent;
+  color: #fff;
+}
+
+#studio-close-preview:hover {
+  background: #242424;
+  transform: translateY(-2px);
+}
+
+/* Keep the close control at the top-right */
+#studio-combined-preview > .studio-preview-actions {
+  margin-top: 28px;
+}
+
+/* Mobile layout */
+@media (max-width: 650px) {
+  .studio-preview-actions {
+    flex-direction: column;
+    padding: 0 10px;
+  }
+
+  #studio-download-preview,
+  #studio-close-preview {
+    width: 100%;
+    max-width: 320px;
+  }
+}
