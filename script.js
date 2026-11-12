@@ -120,16 +120,27 @@ if (heroCarousel) {
   let touchStartY = 0;
 
   
+
 function showSlide(index) {
   currentSlide = (index + slides.length) % slides.length;
 
-  
-
   slides.forEach((slide, i) => {
-    const isActive = i === currentSlide;
+    const depth = (i - currentSlide + slides.length) % slides.length;
 
-    slide.classList.toggle("is-active", isActive);
-    slide.setAttribute("aria-hidden", String(!isActive));
+    slide.classList.toggle("is-active", depth === 0);
+    slide.setAttribute("aria-hidden", "false");
+
+    // Give every garment its new position in the collection
+    // Increase spacing between garments
+    slide.style.setProperty("--depth-x", `${depth * 9}%`);
+    slide.style.setProperty("--depth-scale", `${1.12 - depth * 0.08}`);
+    slide.style.setProperty("--depth-layer", `${10 - depth}`);
+    // Gradually fade garments further back
+    slide.style.setProperty(
+  "--depth-opacity",
+  `${Math.max(0.16, 1 - depth * 0.18)}`
+);
+    slide.style.setProperty("--depth-blur", `${depth * 0.28}px`);
   });
 
   dots.forEach((dot, i) => {
@@ -139,11 +150,9 @@ function showSlide(index) {
     dot.setAttribute("aria-pressed", String(isActive));
   });
 
-  // Animate the active slide's heading
-  animateActiveHeroTitle();
-
   updateHeroVideos();
 }
+
 
 
   prevButton?.addEventListener("click", () => {
@@ -568,335 +577,6 @@ if (heroCarousel) {
 
 
 
-/* =========================================
-   IG PRODUCTS — INTERACTIVE CAROUSELS
-========================================= */
-
-(() => {
-  const carousels = document.querySelectorAll("[data-carousel]");
-
-  carousels.forEach((carousel) => {
-    const track = carousel.querySelector("[data-track]");
-    const previous = carousel.querySelector("[data-prev]");
-    const next = carousel.querySelector("[data-next]");
-    const count = carousel.querySelector("[data-count]");
-    const progress = carousel.querySelector("[data-progress]");
-
-    if (!track || !previous || !next || !count || !progress) return;
-
-    const cards = Array.from(track.querySelectorAll(".product-card"));
-    if (!cards.length) return;
-
-    let activeIndex = 0;
-    let scrollFrame = null;
-
-    // Create one progress mark for each product.
-    progress.replaceChildren();
-
-    const marks = cards.map((card, index) => {
-      const mark = document.createElement("button");
-
-      mark.type = "button";
-      mark.setAttribute("aria-label", `Go to product ${index + 1}`);
-      mark.addEventListener("click", () => goTo(index));
-
-      progress.appendChild(mark);
-      return mark;
-    });
-
-    function getNearestIndex() {
-      const trackLeft = track.getBoundingClientRect().left;
-      let nearest = 0;
-      let smallestDistance = Infinity;
-
-      cards.forEach((card, index) => {
-        const distance = Math.abs(
-          card.getBoundingClientRect().left - trackLeft
-        );
-
-        if (distance < smallestDistance) {
-          smallestDistance = distance;
-          nearest = index;
-        }
-      });
-
-      return nearest;
-    }
-
-    function updateControls() {
-      activeIndex = getNearestIndex();
-
-      count.textContent =
-        `${String(activeIndex + 1).padStart(2, "0")} / ` +
-        `${String(cards.length).padStart(2, "0")}`;
-
-      marks.forEach((mark, index) => {
-        mark.classList.toggle("is-active", index === activeIndex);
-
-        if (index === activeIndex) {
-          mark.setAttribute("aria-current", "true");
-        } else {
-          mark.removeAttribute("aria-current");
-        }
-      });
-
-      const atStart = track.scrollLeft <= 2;
-      const atEnd =
-        track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
-
-      previous.disabled = atStart;
-      next.disabled = atEnd;
-    }
-
-    function goTo(index) {
-      const targetIndex = Math.max(
-        0,
-        Math.min(index, cards.length - 1)
-      );
-
-      track.scrollTo({
-        left: cards[targetIndex].offsetLeft - track.offsetLeft,
-        behavior: window.matchMedia(
-          "(prefers-reduced-motion: reduce)"
-        ).matches ? "auto" : "smooth"
-      });
-    }
-
-    previous.addEventListener("click", () => {
-      goTo(getNearestIndex() - 1);
-    });
-
-    next.addEventListener("click", () => {
-      goTo(getNearestIndex() + 1);
-    });
-
-    track.addEventListener("scroll", () => {
-      if (scrollFrame !== null) {
-        cancelAnimationFrame(scrollFrame);
-      }
-
-      scrollFrame = requestAnimationFrame(() => {
-        updateControls();
-        scrollFrame = null;
-      });
-    }, { passive: true });
-
-    // Keyboard navigation while the carousel track is focused.
-    track.addEventListener("keydown", (event) => {
-      if (event.key === "ArrowRight") {
-        event.preventDefault();
-        goTo(getNearestIndex() + 1);
-      }
-
-      if (event.key === "ArrowLeft") {
-        event.preventDefault();
-        goTo(getNearestIndex() - 1);
-      }
-    });
-
-    // Recalculate after responsive resizing.
-    if ("ResizeObserver" in window) {
-      const observer = new ResizeObserver(updateControls);
-      observer.observe(track);
-    } else {
-      window.addEventListener("resize", updateControls);
-    }
-
-    updateControls();
-  });
-})();
-
-
-
-
-
-
-
-
-
-/* =========================================
-   IG PRODUCTS — STABLE INFINITE CAROUSEL
-========================================= */
-
-(() => {
-  document.querySelectorAll("[data-carousel]").forEach((carousel) => {
-    const track = carousel.querySelector("[data-track]");
-    const prev = carousel.querySelector("[data-prev]");
-    const next = carousel.querySelector("[data-next]");
-    const count = carousel.querySelector("[data-count]");
-    const progress = carousel.querySelector("[data-progress]");
-
-    if (!track || !prev || !next || !count || !progress) return;
-
-    const cards = [...track.querySelectorAll(".product-card")];
-    if (cards.length < 1) return;
-
-    const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)");
-
-    let index = 0;
-    let timer;
-    let resumeTimer;
-    let navigating = false;
-    let paused = false;
-
-    progress.replaceChildren();
-
-    const dots = cards.map((_, i) => {
-      const dot = document.createElement("button");
-      dot.type = "button";
-      dot.setAttribute("aria-label", `Show product ${i + 1}`);
-      dot.addEventListener("click", () => {
-        pause();
-        goTo(i);
-      });
-      progress.appendChild(dot);
-      return dot;
-    });
-
-    function paint() {
-      cards.forEach((card, i) => {
-        card.classList.toggle("is-featured", i === index);
-      });
-
-      count.textContent =
-        `${String(index + 1).padStart(2, "0")} / ` +
-        `${String(cards.length).padStart(2, "0")}`;
-
-      dots.forEach((dot, i) => {
-        dot.classList.toggle("is-active", i === index);
-        if (i === index) dot.setAttribute("aria-current", "true");
-        else dot.removeAttribute("aria-current");
-      });
-
-      prev.disabled = false;
-      next.disabled = false;
-    }
-
-    function goTo(requestedIndex) {
-      const targetIndex = (requestedIndex + cards.length) % cards.length;
-
-      navigating = true;
-      index = targetIndex;
-      paint();
-
-      // Wait for the featured-card width to settle before measuring.
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          const target = cards[index];
-          const left =
-            target.getBoundingClientRect().left -
-            track.getBoundingClientRect().left +
-            track.scrollLeft;
-
-          const wrapsToStart = requestedIndex >= cards.length;
-          const wrapsToEnd = requestedIndex < 0;
-
-          // Wrap instantly at the boundary instead of scrolling backward
-          // across the entire row.
-          track.scrollTo({
-            left,
-            behavior: "auto"
-          });
-
-          window.setTimeout(() => {
-            navigating = false;
-          }, reduceMotion.matches ? 50 : 800);
-        });
-      });
-    }
-
-    function nearestIndex() {
-      const left = track.getBoundingClientRect().left;
-      let best = 0;
-      let distance = Infinity;
-
-      cards.forEach((card, i) => {
-        const d = Math.abs(card.getBoundingClientRect().left - left);
-        if (d < distance) {
-          distance = d;
-          best = i;
-        }
-      });
-
-      return best;
-    }
-
-    function stop() {
-      clearInterval(timer);
-      timer = null;
-    }
-
-    function start() {
-      stop();
-      if (paused || reduceMotion.matches || cards.length < 2) return;
-
-      timer = setInterval(() => {
-        if (!navigating) {
-          if (index === cards.length - 1) {
-            goTo(cards.length); // wrap to first
-          } else {
-            goTo(index + 1);
-          }
-        }
-      }, 3000);
-    }
-
-    function pause() {
-      paused = true;
-      stop();
-      clearTimeout(resumeTimer);
-    }
-
-    function resume() {
-      clearTimeout(resumeTimer);
-      resumeTimer = setTimeout(() => {
-        paused = false;
-        start();
-      }, 1500);
-    }
-
-    prev.addEventListener("click", () => {
-      pause();
-      goTo(index - 1);
-      resume();
-    });
-
-    next.addEventListener("click", () => {
-      pause();
-      goTo(index + 1);
-      resume();
-    });
-
-    track.addEventListener("scroll", () => {
-      if (navigating) return;
-
-      index = nearestIndex();
-      paint();
-    }, { passive: true });
-
-    carousel.addEventListener("mouseenter", pause);
-    carousel.addEventListener("mouseleave", resume);
-    carousel.addEventListener("focusin", pause);
-    carousel.addEventListener("focusout", (event) => {
-      if (!carousel.contains(event.relatedTarget)) resume();
-    });
-
-    track.addEventListener("touchstart", pause, { passive: true });
-    track.addEventListener("touchend", resume, { passive: true });
-
-    window.addEventListener("resize", () => {
-      goTo(index);
-    });
-
-    paint();
-    goTo(0);
-    start();
-  });
-})();
-
-
-
-
 
 
 
@@ -1073,3 +753,205 @@ const footerYear = document.getElementById("ig-footer-year");
 if (footerYear) {
   footerYear.textContent = new Date().getFullYear();
 }
+
+
+
+
+
+
+
+/* =========================================
+   IG CUSTOM PRINTING
+   COMPACT PRODUCT STRIP — INFINITE CAROUSEL
+   Isolated from existing product carousels
+========================================= */
+
+(() => {
+  "use strict";
+
+  function initIGProductStrip() {
+    const strips = document.querySelectorAll(".ig-product-strip");
+
+    strips.forEach((strip) => {
+      if (strip.dataset.infiniteReady === "true") return;
+
+      const track = strip.querySelector(".ig-product-strip__track");
+      if (!track) return;
+
+      const originalItems = Array.from(track.children).filter(
+        (item) => item.classList.contains("ig-product-strip__item")
+      );
+
+      if (originalItems.length < 2) return;
+
+      strip.dataset.infiniteReady = "true";
+
+      // Keep a clean copy of the original product cards.
+      const originalCount = originalItems.length;
+
+      // Duplicate the cards to create the seamless loop.
+      originalItems.forEach((item) => {
+        const clone = item.cloneNode(true);
+        clone.setAttribute("aria-hidden", "true");
+        clone.querySelectorAll("img").forEach((img) => {
+          img.setAttribute("draggable", "false");
+        });
+        track.appendChild(clone);
+      });
+
+      let position = 0;
+      let loopWidth = 0;
+      let lastTime = 0;
+      let animationFrame = 0;
+      let isDragging = false;
+      let isHovering = false;
+      let dragStartX = 0;
+      let dragStartPosition = 0;
+      let lastPointerX = 0;
+      let velocity = 0;
+      let isVisible = true;
+
+      // Pixels per second. Adjust for a slower or faster carousel.
+      const speed = 24;
+      const reducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      );
+
+      function measure() {
+        const firstClone = track.children[originalCount];
+
+        if (!firstClone) return;
+
+        // Distance from the first original card to its matching clone.
+        loopWidth = firstClone.offsetLeft - track.children[0].offsetLeft;
+
+        if (loopWidth > 0) {
+          position = normalize(position);
+          render();
+        }
+      }
+
+      function normalize(value) {
+        if (!loopWidth) return 0;
+        return ((value % loopWidth) + loopWidth) % loopWidth;
+      }
+
+      function render() {
+        track.style.transform =
+          `translate3d(${-position}px, 0, 0)`;
+      }
+
+      function animate(time) {
+        animationFrame = requestAnimationFrame(animate);
+
+        if (!lastTime) lastTime = time;
+
+        // Prevent a large jump after switching tabs.
+        const delta = Math.min((time - lastTime) / 1000, 0.04);
+        lastTime = time;
+
+        if (!isDragging && isVisible && !isHovering && !reducedMotion.matches) {
+          position = normalize(position + speed * delta);
+          render();
+        } else if (!isDragging && Math.abs(velocity) > 0.1) {
+          position = normalize(position + velocity * delta);
+          velocity *= Math.pow(0.94, delta * 60);
+          render();
+        } else {
+          velocity = 0;
+        }
+      }
+
+      strip.addEventListener("pointerdown", (event) => {
+        if (event.pointerType === "mouse" && event.button !== 0) return;
+
+        isDragging = true;
+        dragStartX = event.clientX;
+        lastPointerX = event.clientX;
+        dragStartPosition = position;
+        velocity = 0;
+        lastTime = 0;
+
+        strip.classList.add("is-dragging");
+
+        try {
+          strip.setPointerCapture(event.pointerId);
+        } catch (_) {}
+      });
+
+      strip.addEventListener("pointermove", (event) => {
+        if (!isDragging) return;
+
+        const deltaX = event.clientX - dragStartX;
+        const pointerDelta = event.clientX - lastPointerX;
+
+        position = normalize(dragStartPosition - deltaX);
+        velocity = -pointerDelta * 12;
+        lastPointerX = event.clientX;
+
+        render();
+      });
+
+      function stopDragging() {
+        if (!isDragging) return;
+
+        isDragging = false;
+        strip.classList.remove("is-dragging");
+        lastTime = 0;
+      }
+
+      strip.addEventListener("pointerup", stopDragging);
+      strip.addEventListener("pointercancel", stopDragging);
+      strip.addEventListener("lostpointercapture", stopDragging);
+
+      // Pause autoplay while the pointer is over the carousel.
+      strip.addEventListener("mouseenter", () => {
+        isHovering = true;
+      });
+
+      strip.addEventListener("mouseleave", () => {
+        isHovering = false;
+      });
+
+      // Pause work while the strip is off-screen.
+      if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(([entry]) => {
+          isVisible = entry.isIntersecting;
+        });
+
+        observer.observe(strip);
+      }
+
+      // Keep looping correctly when the layout changes.
+      if ("ResizeObserver" in window) {
+        const resizeObserver = new ResizeObserver(measure);
+        resizeObserver.observe(strip);
+        resizeObserver.observe(track);
+      } else {
+        window.addEventListener("resize", measure);
+      }
+
+      // Re-measure after product images finish loading.
+      track.querySelectorAll("img").forEach((img) => {
+        if (!img.complete) {
+          img.addEventListener("load", measure, { once: true });
+          img.addEventListener("error", measure, { once: true });
+        }
+      });
+
+      measure();
+      animationFrame = requestAnimationFrame(animate);
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initIGProductStrip, {
+      once: true
+    });
+  } else {
+    initIGProductStrip();
+  }
+})();
+
+
+

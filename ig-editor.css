@@ -1,0 +1,1114 @@
+
+
+/* ==========================================
+   IG CUSTOM DESIGN STUDIO — HERO
+========================================== */
+
+.ig-studio,
+.ig-studio * {
+  box-sizing: border-box;
+}
+
+.ig-studio {
+  --studio-orange: #ff5200;
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr 0.95fr;
+  align-items: stretch;
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  min-width: 0;
+  min-height: 760px;
+  overflow: hidden;
+  background: #111;
+  color: #fff;
+  font-family: "Inter", Arial, sans-serif;
+}
+
+.ig-studio button,
+.ig-studio input {
+  font: inherit;
+}
+
+.ig-studio button,
+.ig-studio a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.ig-studio a {
+  text-decoration: none;
+}
+
+.ig-studio button {
+  cursor: pointer;
+}
+
+/* LEFT INTRO */
+
+.ig-studio__intro {
+  z-index: 2;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  min-width: 0;
+  padding: 64px 24px 64px clamp(28px, 4.5vw, 76px);
+  background:
+    radial-gradient(ellipse at 0 100%, #47200e 0, transparent 45%),
+    linear-gradient(110deg, #111, #171513);
+}
+
+.ig-studio__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin: 0 0 30px;
+  color: var(--studio-orange);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.ig-studio__eyebrow span {
+  width: 28px;
+  height: 2px;
+  background: var(--studio-orange);
+}
+
+.ig-studio__intro h1 {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(36px, 3.2vw, 58px);
+  line-height: 1.04;
+  letter-spacing: -2.5px;
+  font-weight: 800;
+}
+
+.ig-studio__intro h1 span {
+  color: var(--studio-orange);
+}
+
+.ig-studio__description {
+  max-width: 450px;
+  margin: 24px 0 0;
+  color: #c5c5c5;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.ig-studio__actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 22px;
+  margin-top: 28px;
+}
+
+.ig-studio__primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 18px 20px;
+  background: var(--studio-orange);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.7px;
+  transition: background 0.2s ease;
+}
+
+.ig-studio__primary:hover {
+  background: #e84900;
+  color: #fff;
+}
+
+.ig-studio__primary span {
+  font-size: 20px;
+}
+
+.ig-studio__secondary {
+  padding-bottom: 7px;
+  border-bottom: 1px solid #777;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.ig-studio__benefits {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-top: 48px;
+}
+
+.ig-studio__benefits > div {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.ig-studio__benefits > div > span {
+  color: var(--studio-orange);
+  font-size: 27px;
+}
+
+.ig-studio__benefits p {
+  margin: 0;
+  color: #bdbdbd;
+  font-size: 8px;
+  line-height: 1.6;
+  letter-spacing: 1px;
+}
+
+.ig-studio__benefits > i {
+  width: 1px;
+  height: 30px;
+  background: #555;
+}
+
+/* CENTER PRODUCT STAGE */
+
+.ig-studio__stage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 760px;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 42%, #a94a16 0, #482516 28%, #171311 62%, #111 100%);
+}
+
+.ig-studio__glow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 60%;
+  background: linear-gradient(transparent, #ff681c, transparent);
+  transform: rotate(35deg);
+  box-shadow: 0 0 35px 8px #ff520055;
+}
+
+.ig-studio__platform {
+  position: absolute;
+  bottom: 7%;
+  left: 8%;
+  width: 84%;
+  height: 14%;
+  border-radius: 50%;
+  background: linear-gradient(#373331, #111);
+  border: 1px solid #5e5148;
+  box-shadow: 0 8px 0 #29211c, 0 12px 28px #000;
+}
+
+.ig-studio__product {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 540px;
+  padding: 0 2%;
+  transform: translateY(-1%);
+}
+
+.ig-studio__product > img {
+  display: block;
+  width: 100%;
+  max-height: 620px;
+  object-fit: contain;
+  mix-blend-mode: normal;
+  filter: drop-shadow(0 25px 20px #0008);
+}
+
+/* ARTWORK OVERLAY */
+
+.ig-studio__artwork-area {
+  position: absolute;
+  top: 34%;
+  left: 50%;
+  width: 27%;
+  height: 28%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.ig-studio__artwork-area > img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 2px #0004);
+}
+
+.ig-studio__stage-label {
+  position: absolute;
+  bottom: 4%;
+  left: 50%;
+  width: max-content;
+  max-width: 90%;
+  transform: translateX(-50%);
+  color: #bcb4ae;
+  font-size: 8px;
+  letter-spacing: 1.5px;
+}
+
+.ig-studio__stage-label span {
+  color: var(--studio-orange);
+}
+
+/* RIGHT CUSTOMIZER PANEL */
+
+.ig-studio__panel {
+  align-self: center;
+  z-index: 3;
+  min-width: 0;
+  margin: 22px 18px 22px 0;
+  padding: 22px 18px;
+  border: 1px solid #343434;
+  border-radius: 15px;
+  background: linear-gradient(145deg, #171717, #101010);
+  box-shadow: 0 15px 50px #0007;
+}
+
+.ig-studio__steps {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 23px;
+}
+
+.ig-studio__steps > div {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #aaa;
+  font-size: 9px;
+  white-space: nowrap;
+}
+
+.ig-studio__steps > div > span {
+  display: grid;
+  place-items: center;
+  flex: 0 0 30px;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #444;
+  border-radius: 50%;
+  font-size: 11px;
+}
+
+.ig-studio__steps > .is-current > span {
+  border-color: var(--studio-orange);
+  background: var(--studio-orange);
+  color: #fff;
+}
+
+.ig-studio__steps > .is-current {
+  color: #fff;
+}
+
+/* UPLOAD AREA */
+
+.ig-studio__upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 175px;
+  padding: 20px 10px;
+  border: 1px dashed #626262;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.ig-studio__upload:hover {
+  border-color: var(--studio-orange);
+  background: #ff520008;
+}
+
+.ig-studio__upload input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.ig-studio__upload input:focus-visible + .ig-studio__upload-icon {
+  outline: 2px solid var(--studio-orange);
+}
+
+.ig-studio__upload-icon {
+  color: #aaa;
+  font-size: 33px;
+  line-height: 1;
+}
+
+.ig-studio__upload strong {
+  font-size: 12px;
+}
+
+.ig-studio__upload small {
+  color: #aaa;
+  font-size: 9px;
+  line-height: 1.5;
+}
+
+.ig-studio__choose-file {
+  padding: 11px 20px;
+  border-radius: 3px;
+  background: var(--studio-orange);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+}
+
+/* PRODUCT CHOICES */
+
+.ig-studio__section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin: 22px 0 13px;
+}
+
+.ig-studio__section-heading strong,
+.ig-studio__options > div > strong {
+  font-size: 12px;
+}
+
+.ig-studio__section-heading a {
+  color: var(--studio-orange);
+  font-size: 9px;
+  white-space: nowrap;
+}
+
+.ig-studio__products {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 7px;
+}
+
+.ig-studio__products button {
+  min-width: 0;
+  padding: 9px 3px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  background: #242424;
+  color: #fff;
+  font-size: 9px;
+  transition: border-color 0.2s ease;
+}
+
+.ig-studio__products button.is-selected {
+  border-color: var(--studio-orange);
+  box-shadow: 0 0 0 1px var(--studio-orange);
+}
+
+.ig-studio__product-icon {
+  display: grid;
+  place-items: center;
+  height: 65px;
+  margin-bottom: 6px;
+  border-radius: 4px;
+  background: linear-gradient(145deg, #303030, #191919);
+  color: #eee;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+/* COLOR AND POSITION */
+
+.ig-studio__options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.ig-studio__options > div {
+  min-width: 0;
+}
+
+.ig-studio__options > div > strong {
+  display: block;
+  margin-bottom: 12px;
+}
+
+.ig-studio__colors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.ig-studio__colors button {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 2px solid #333;
+  border-radius: 50%;
+  background: var(--swatch);
+}
+
+.ig-studio__colors button.is-selected {
+  outline: 2px solid var(--studio-orange);
+  outline-offset: 2px;
+}
+
+.ig-studio__positions {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.ig-studio__positions button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+  padding: 7px 2px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  background: #171717;
+  color: #aaa;
+  font-size: 9px;
+}
+
+.ig-studio__positions button > span {
+  font-size: 20px;
+}
+
+.ig-studio__positions button.is-selected {
+  border-color: var(--studio-orange);
+  color: var(--studio-orange);
+}
+
+/* PREVIEW BUTTON */
+
+.ig-studio__preview-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 52px;
+  margin-top: 23px;
+  padding: 12px;
+  border: 0;
+  border-radius: 4px;
+  background: var(--studio-orange);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+  transition: background 0.2s ease;
+}
+
+.ig-studio__preview-button:hover {
+  background: #e84900;
+}
+
+.ig-studio__preview-button span {
+  font-size: 19px;
+}
+
+.ig-studio__message {
+  margin: 8px 0 0;
+  color: #ff986d;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+/* LAPTOPS */
+
+@media (max-width: 1250px) {
+  .ig-studio {
+    grid-template-columns: 0.9fr 0.8fr 1fr;
+    min-height: 700px;
+  }
+
+  .ig-studio__intro {
+    padding-left: 28px;
+  }
+
+  .ig-studio__intro h1 {
+    font-size: clamp(34px, 3.4vw, 48px);
+    letter-spacing: -2px;
+  }
+
+  .ig-studio__stage {
+    min-height: 700px;
+  }
+
+  .ig-studio__panel {
+    margin-right: 12px;
+    padding: 17px 12px;
+  }
+
+  .ig-studio__steps > div {
+    font-size: 8px;
+    gap: 4px;
+  }
+
+  .ig-studio__steps > div > span {
+    flex-basis: 25px;
+    width: 25px;
+    height: 25px;
+  }
+
+  .ig-studio__benefits {
+    gap: 8px;
+  }
+}
+
+/* TABLET: STACK INTRO, STAGE, PANEL */
+
+@media (max-width: 900px) {
+  .ig-studio {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .ig-studio__intro {
+    grid-column: 1 / -1;
+    padding: 55px 6%;
+  }
+
+  .ig-studio__intro h1 {
+    font-size: clamp(42px, 7vw, 64px);
+  }
+
+  .ig-studio__stage {
+    min-height: 600px;
+  }
+
+  .ig-studio__panel {
+    align-self: center;
+    margin: 24px 20px 24px 0;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 620px) {
+  .ig-studio {
+    grid-template-columns: 1fr;
+  }
+
+  .ig-studio__intro {
+    grid-column: auto;
+    padding: 48px 22px 34px;
+  }
+
+  .ig-studio__intro h1 {
+    font-size: clamp(39px, 10vw, 55px);
+    letter-spacing: -2px;
+  }
+
+  .ig-studio__description {
+    font-size: 13px;
+  }
+
+  .ig-studio__actions {
+    gap: 17px;
+  }
+
+  .ig-studio__benefits {
+    gap: 13px;
+    margin-top: 34px;
+  }
+
+  .ig-studio__benefits p {
+    font-size: 7px;
+  }
+
+  .ig-studio__stage {
+    min-height: 440px;
+  }
+
+  .ig-studio__product {
+    max-width: 390px;
+  }
+
+  .ig-studio__platform {
+    bottom: 9%;
+  }
+
+  .ig-studio__panel {
+    margin: 0;
+    padding: 22px 17px;
+    border-radius: 0;
+    border-right: 0;
+    border-left: 0;
+  }
+
+  .ig-studio__steps > div {
+    font-size: 9px;
+  }
+
+  .ig-studio__steps > div > span {
+    flex-basis: 28px;
+    width: 28px;
+    height: 28px;
+  }
+
+  .ig-studio__upload {
+    min-height: 165px;
+  }
+
+  .ig-studio__product-icon {
+    height: 72px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ig-studio *,
+  .ig-studio *::before,
+  .ig-studio *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+
+
+
+
+
+
+
+
+/* CUSTOM STUDIO — DRAGGABLE ARTWORK */
+
+.ig-studio__artwork-area {
+  pointer-events: auto;
+  touch-action: none;
+  cursor: grab;
+  overflow: visible;
+}
+
+.ig-studio__artwork-area:active {
+  cursor: grabbing;
+}
+
+.ig-studio__artwork-area > img {
+  max-width: none;
+  max-height: none;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: auto;
+}
+
+
+
+
+
+/* Artwork interaction */
+.ig-studio__artwork-area {
+  pointer-events: none;
+}
+
+.ig-studio__artwork-area img {
+  pointer-events: auto;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.ig-studio__artwork-area img:active {
+  cursor: grabbing;
+}
+
+
+
+
+
+
+
+/* Adobe-style artwork selection and resize handles */
+.ig-studio__artwork-area {
+  overflow: visible;
+}
+
+
+
+.ig-artwork-editor {
+  position: relative;
+  display: block;
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  line-height: 0;
+  border: 1px solid #1685ff;
+  cursor: default;
+  touch-action: none;
+  pointer-events: auto;
+}
+
+
+
+.ig-artwork-editor[hidden] {
+  display: none !important;
+}
+
+
+.ig-artwork-editor img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: none;
+  max-height: none;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.ig-resize-handle {
+  position: absolute;
+  z-index: 5;
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  border: 1px solid #1685ff;
+  border-radius: 1px;
+  pointer-events: auto;
+}
+
+.ig-resize-nw { top: -5px; left: -5px; cursor: nwse-resize; }
+.ig-resize-ne { top: -5px; right: -5px; cursor: nesw-resize; }
+.ig-resize-sw { bottom: -5px; left: -5px; cursor: nesw-resize; }
+.ig-resize-se { bottom: -5px; right: -5px; cursor: nwse-resize; }
+
+
+
+
+/* Artwork selection state */
+.ig-artwork-editor {
+  border: 1px solid transparent;
+}
+
+.ig-artwork-editor.is-selected {
+  border-color: #1685ff;
+}
+
+.ig-artwork-editor:not(.is-selected) .ig-resize-handle {
+  display: none;
+}
+
+
+
+
+
+/* IG STUDIO — Slightly raise product on mobile */
+@media (max-width: 600px) {
+  .ig-studio__product {
+    transform: translateY(-15px);
+  }
+}
+
+
+
+
+
+
+/* IG STUDIO — Product position adjustments */
+
+/* Desktop: move the T-shirt slightly down */
+@media (min-width: 601px) {
+  .ig-studio__product {
+    transform: translateY(10px);
+  }
+}
+
+/* Mobile: move the T-shirt slightly up */
+@media (max-width: 600px) {
+  .ig-studio__product {
+    transform: translateY(-35px);
+  }
+}
+
+
+
+
+
+
+/* IG STUDIO — SMART ARTWORK CURSORS */
+.ig-studio .ig-artwork-editor {
+  cursor: grab;
+}
+
+.ig-studio .ig-artwork-editor:active {
+  cursor: grabbing;
+}
+
+.ig-studio .ig-resize-handle {
+  cursor: nwse-resize;
+}
+
+.ig-studio .ig-resize-ne,
+.ig-studio .ig-resize-sw {
+  cursor: nesw-resize;
+}
+
+
+
+
+
+
+
+/* SAVE CURRENT SIDE DESIGN */
+#studio-save-side {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 48px;
+  margin-top: 16px;
+  padding: 12px;
+  border: 1px solid #f26522;
+  border-radius: 4px;
+  background: transparent;
+  color: #f26522;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.7px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+#studio-save-side:hover,
+#studio-save-side.is-saved {
+  background: #f26522;
+  color: #fff;
+}
+
+
+
+
+
+/* COMBINED DESIGN PREVIEW */
+#studio-combined-preview {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  overflow-y: auto;
+  padding: 40px 20px;
+  background: #111;
+  color: #fff;
+  isolation: isolate;
+overscroll-behavior: contain;
+}
+
+#studio-combined-preview[hidden] {
+  display: none !important;
+}
+
+#studio-combined-preview h2 {
+  margin: 0 0 24px;
+  color: #ff5200;
+  text-align: center;
+  font-size: 28px;
+}
+
+#studio-combined-preview p {
+  color: #ccc;
+  text-align: center;
+}
+
+
+
+
+
+
+/* FRONT + BACK PREVIEW LAYOUT */
+#studio-close-preview {
+  display: block;
+  margin: 0 0 24px auto;
+  padding: 10px 18px;
+  border: 1px solid #ff5200;
+  border-radius: 6px;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+
+.studio-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.studio-preview-card {
+  padding: 18px;
+  border: 1px solid #333;
+  border-radius: 12px;
+  background: #191919;
+}
+
+.studio-preview-card h3 {
+  margin: 0 0 16px;
+  color: #ff5200;
+  text-align: center;
+  font-size: 16px;
+}
+
+#studio-preview-front,
+#studio-preview-back {
+  min-height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 650px) {
+  #studio-combined-preview {
+    padding: 20px 12px;
+  }
+
+  .studio-preview-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  #studio-preview-front,
+  #studio-preview-back {
+    min-height: 220px;
+  }
+}
+
+
+
+
+/* T-SHIRT MOCKUP PREVIEW */
+.studio-preview-shirt {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  margin: 0 auto;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.studio-preview-shirt__mockup {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.studio-preview-shirt__artwork {
+  position: absolute;
+  display: block;
+  max-width: none;
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+
+
+
+body:has(#studio-combined-preview:not([hidden])) {
+  overflow: hidden;
+}
+
+
+
+
+
+/* PREVIEW ACTION BUTTONS */
+.studio-preview-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  width: 100%;
+  max-width: 1000px;
+  margin: 28px auto 10px;
+}
+
+#studio-download-preview,
+#studio-close-preview {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 0 24px;
+  border: 1px solid #ff5200;
+  border-radius: 7px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+#studio-download-preview {
+  background: #ff5200;
+  color: #fff;
+}
+
+#studio-download-preview:hover {
+  background: #e84900;
+  transform: translateY(-2px);
+}
+
+#studio-download-preview:disabled {
+  opacity: 0.65;
+  cursor: wait;
+  transform: none;
+}
+
+#studio-close-preview {
+  background: transparent;
+  color: #fff;
+}
+
+#studio-close-preview:hover {
+  background: #242424;
+  transform: translateY(-2px);
+}
+
+/* Keep the close control at the top-right */
+#studio-combined-preview > .studio-preview-actions {
+  margin-top: 28px;
+}
+
+/* Mobile layout */
+@media (max-width: 650px) {
+  .studio-preview-actions {
+    flex-direction: column;
+    padding: 0 10px;
+  }
+
+  #studio-download-preview,
+  #studio-close-preview {
+    width: 100%;
+    max-width: 320px;
+  }
+}

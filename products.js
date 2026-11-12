@@ -1,15 +1,13 @@
 
 /* =====================================================
-   IG CUSTOM PRINTING — PRODUCT CATALOG JAVASCRIPT
-   Search, category filters, product count and navigation
+   IG CUSTOM PRINTING — PRODUCT CATALOG INTERACTIONS
+   Search • Filters • Product Details • Quote
 ===================================================== */
 
 (() => {
   "use strict";
 
   const catalog = document.querySelector(".ig-catalog-page");
-
-  // Do nothing on pages that don't contain the catalog.
   if (!catalog) return;
 
   const searchInput = catalog.querySelector("#ig-product-search");
@@ -19,784 +17,652 @@
   const productCards = [
     ...catalog.querySelectorAll(".ig-product-card")
   ];
+
+  const productGrid = catalog.querySelector("#ig-product-grid");
   const productCount = catalog.querySelector("#ig-product-count");
   const emptyMessage = catalog.querySelector("#ig-product-empty");
-  const productGrid = catalog.querySelector("#ig-product-grid");
 
-  let activeCategory = "all";
+  const modal = catalog.querySelector("#ig-product-modal");
+
+  if (!modal) return;
+
+  const modalImage = modal.querySelector("#ig-modal-image");
+  const modalCategory = modal.querySelector("#ig-modal-category");
+  const modalTitle = modal.querySelector("#ig-modal-title");
+  const modalDescription = modal.querySelector("#ig-modal-description");
+  const modalDetails = modal.querySelector("#ig-modal-details");
+  const modalQuote = modal.querySelector("#ig-modal-quote");
+
+  const requestedCategory = new URLSearchParams(
+  window.location.search
+).get("category");
+
+let activeCategory = categoryButtons.some(
+  button => button.dataset.category === requestedCategory
+)
+  ? requestedCategory
+  : "all";
   let searchQuery = "";
-
   /* ================================================
-     PRODUCT SEARCH AND CATEGORY FILTERING
-  ================================================ */
+   UPDATE SIDEBAR CATEGORY COUNTS
+================================================ */
 
-  function filterProducts() {
-    let visibleCount = 0;
+function updateCategoryCounts() {
+  const counts = {
+    all: productCards.length
+  };
 
-    productCards.forEach((card) => {
-      const category = card.dataset.category || "";
-      const productName = card.dataset.productName || "";
+  productCards.forEach((card) => {
+    const category = card.dataset.category || "";
 
-      const heading = card.querySelector("h3")?.textContent || "";
-      const description =
-        card.querySelector(".ig-product-card__description")?.textContent || "";
+    counts[category] = (counts[category] || 0) + 1;
+  });
 
-      const searchableText = [
-        productName,
-        heading,
-        description,
-        category
-      ].join(" ").toLowerCase();
+  categoryButtons.forEach((button) => {
+    const category = button.dataset.category || "all";
 
-      const matchesCategory =
-        activeCategory === "all" ||
-        category === activeCategory;
+    let countElement = button.querySelector(".ig-category-count");
 
-      const matchesSearch =
-        searchQuery === "" ||
-        searchableText.includes(searchQuery);
-
-      const shouldShow = matchesCategory && matchesSearch;
-
-      card.hidden = !shouldShow;
-
-      if (shouldShow) {
-        visibleCount++;
-      }
-    });
-
-    // Update the product count.
-    if (productCount) {
-      productCount.textContent =
-        `${visibleCount} ${visibleCount === 1 ? "PRODUCT" : "PRODUCTS"}`;
+    if (!countElement) {
+      countElement = document.createElement("span");
+      countElement.className = "ig-category-count";
+      button.appendChild(countElement);
     }
 
-    // Show or hide the empty-state message.
-    if (emptyMessage) {
-      emptyMessage.hidden = visibleCount !== 0;
-    }
+    countElement.dataset.count = category;
+    countElement.textContent = counts[category] || 0;
+  });
+}
+  let lastFocusedElement = null;
 
-    // Hide the grid when no products match.
-    if (productGrid) {
-      productGrid.hidden = visibleCount === 0;
+
+  /* =========================================
+     CATEGORY NAMES
+  ========================================= */
+
+  const categoryNames = {
+    apparel: "CUSTOM APPAREL",
+    signs: "SIGNS & BANNERS",
+    printing: "BUSINESS PRINTING",
+    promotional: "PROMOTIONAL PRODUCTS",
+    stickers: "STICKERS & DECALS",
+    events: "EVENT & TRADE SHOW",
+    vehicle: "VEHICLE GRAPHICS",
+    embroidery: "EMBROIDERY & TEAMWEAR"
+  };
+
+
+
+/* =========================================
+   IG SMART SEARCH ENGINE
+========================================= */
+
+// Product and industry search synonyms
+const productSearchSynonyms = {
+  "t-shirt": "t shirts tee tees tshirt tshirts shirt shirts custom clothing apparel uniform",
+  "hoodie": "hoodies sweatshirt sweatshirts pullover fleece",
+  "polo shirt": "polo polos golf shirt uniform workwear",
+  "long sleeve shirt": "long sleeve longsleeve full sleeve",
+  "custom jackets": "jacket jackets coat coats outerwear",
+  "tank tops": "tank top sleeveless vest muscle shirt",
+  "crewneck sweatshirts": "crewneck crew neck sweatshirt",
+  "zip-up hoodies": "zip hoodie zipup zipper hoodie",
+  "performance shirts": "sports shirt athletic shirt dry fit dri fit",
+  "athletic jerseys": "jersey jerseys sports uniform team jersey",
+  "sportswear": "sports clothing athletic wear activewear",
+  "work shirts": "workwear uniform employee clothing",
+  "workwear": "work clothes work uniform",
+  "tank jerseys": "sleeveless jersey basketball jersey",
+  "aprons": "apron kitchen uniform chef apron",
+  "custom shorts": "shorts athletic shorts",
+  "windbreakers": "wind breaker jacket",
+  "custom beanies": "beanie beanies winter hat caps",
+
+  "vinyl banners": "banner banners flex banner outdoor advertising",
+  "retractable banners": "roll up banner pull up banner stand banner",
+  "a-frame signs": "a frame sidewalk sign sandwich board",
+  "yard signs": "lawn signs garden signs real estate lawn sign",
+  "acrylic signs": "plexiglass signs clear plastic signage",
+  "real estate signs": "property signs realtor signs for sale signs",
+  "construction signs": "jobsite signs contractor signs worksite signs",
+  "corrugated plastic signs": "coroplast signs coro signs plastic yard signs",
+  "aluminum signs": "metal aluminum panel signage",
+  "metal signs": "steel signs aluminium signs",
+  "pvc signs": "plastic pvc board signs",
+  "foam board signs": "foamcore foam core display boards",
+  "storefront signs": "shop signs business front signage",
+  "window signs": "window graphics glass signs shop window lettering",
+  "wall signs": "wall graphics indoor signage",
+  "floor graphics": "floor decals floor stickers",
+  "directional signs": "wayfinding signs navigation signs",
+  "parking signs": "parking lot signs traffic signs",
+  "safety signs": "warning signs caution signs workplace signs",
+  "mesh banners": "mesh fence banner wind resistant banner",
+  "fabric banners": "cloth banners textile banners",
+  "feather flags": "feather flag teardrop advertising flags",
+  "teardrop flags": "teardrop flag beach flag promotional flag",
+  "illuminated signs": "lighted signs led signs backlit signs lightbox",
+
+  "business cards": "visiting cards name cards contact cards calling cards business card printing",
+  "flyers": "leaflets handouts pamphlets promotional flyers",
+  "brochures": "booklets pamphlets folded leaflets",
+  "postcards": "mail cards direct mail cards promotional cards",
+  "rack cards": "rackcard display cards hotel cards",
+  "door hangers": "doorhanger door knob hangers advertising hangers",
+  "booklets": "booklet catalogs catalogues multi page printing",
+  "product catalogs": "product catalog product catalogue lookbook",
+  "restaurant menus": "menu menus takeaway menu food menu cafe menu",
+  "presentation folders": "pocket folders document folders business folders",
+  "letterheads": "letter head stationery company stationery",
+  "envelopes": "printed envelope mailing envelopes",
+  "notepads": "note pads memo pads writing pads",
+  "invitations": "invite invites invitation cards event invitations",
+  "greeting cards": "greeting card holiday cards thank you cards",
+  "posters": "poster prints large format prints advertising posters",
+  "calendars": "calendar wall calendar desk calendar",
+  "carbonless forms": "ncr forms duplicate forms triplicate forms invoice books",
+  "tickets": "event tickets admission tickets raffle tickets",
+  "table tents": "tent cards tabletop displays menu tents",
+
+  "custom pens": "pen pens ballpoint pens promotional pens",
+  "keychains": "key chains key rings keyrings",
+  "branded notebooks": "notebook notebooks journals diaries",
+  "water bottles": "bottle bottles drink bottles reusable bottles",
+  "tumblers": "tumbler travel mugs insulated cups",
+  "coffee mugs": "mug mugs cups drinkware",
+  "tote bags": "tote bag shopping bags reusable bags",
+
+  "stickers": "sticker stickers labels adhesive labels decals",
+  "decals": "decal decals vinyl stickers graphics",
+  "vehicle graphics": "car graphics auto graphics truck graphics vehicle lettering",
+  "vehicle wraps": "car wrap truck wrap van wrap vinyl wrap",
+  "embroidery": "embroidered stitching thread logo embroidery",
+  "teamwear": "team clothing sports uniforms jerseys"
+};
+
+// Category synonyms
+const categorySearchSynonyms = {
+  apparel: "clothing clothes garments uniforms shirts wear",
+  signs: "sign signage signboards boards banners displays",
+  printing: "print prints printed paper stationery marketing",
+  promotional: "promo merchandise giveaways gifts branded items",
+  stickers: "sticker labels decals adhesive vinyl",
+  events: "event exhibition trade show expo display",
+  vehicle: "car auto truck van vehicle automotive",
+  embroidery: "embroidered stitching thread sewn"
+};
+
+// Normalize search text
+function normalizeSearchText(value) {
+  return String(value || "")
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9\s]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+// Calculate spelling difference between two words
+function getEditDistance(a, b) {
+  if (a === b) return 0;
+  if (!a.length) return b.length;
+  if (!b.length) return a.length;
+
+  const row = Array.from(
+    { length: b.length + 1 },
+    (_, i) => i
+  );
+
+  for (let i = 1; i <= a.length; i++) {
+    let previous = row[0];
+    row[0] = i;
+
+    for (let j = 1; j <= b.length; j++) {
+      const current = row[j];
+
+      row[j] = Math.min(
+        row[j] + 1,
+        row[j - 1] + 1,
+        previous + (a[i - 1] === b[j - 1] ? 0 : 1)
+      );
+
+      previous = current;
     }
   }
 
-  /* ================================================
-     CATEGORY BUTTONS
-  ================================================ */
+  return row[b.length];
+}
 
-  categoryButtons.forEach((button) => {
+// Check whether two words are close in spelling
+function isFuzzyWordMatch(searchWord, productWord) {
+  if (searchWord === productWord) return true;
+
+  if (
+    searchWord.length >= 3 &&
+    productWord.startsWith(searchWord)
+  ) {
+    return true;
+  }
+
+  if (Math.abs(searchWord.length - productWord.length) > 2) {
+    return false;
+  }
+
+  const distance = getEditDistance(searchWord, productWord);
+
+  const allowedErrors =
+    searchWord.length >= 8 ? 2 :
+    searchWord.length >= 5 ? 1 : 0;
+
+  return distance <= allowedErrors;
+}
+
+
+
+
+/* =========================================
+   SMART PRODUCT FILTERING
+========================================= */
+
+function filterProducts() {
+
+  let visibleCount = 0;
+
+  const query = normalizeSearchText(searchQuery);
+  const searchWords = query.split(" ").filter(Boolean);
+
+  productCards.forEach((card, index) => {
+
+    const category = card.dataset.category || "";
+    const name = card.dataset.productName || "";
+    const description = card.dataset.description || "";
+
+    const normalizedName = normalizeSearchText(name);
+    const normalizedDescription = normalizeSearchText(description);
+    const normalizedCategory = normalizeSearchText(
+      categoryNames[category] || category
+    );
+
+    // Product-specific synonyms
+    const synonymKey = Object.keys(productSearchSynonyms)
+      .find(key => normalizeSearchText(key) === normalizedName);
+
+    const synonyms = synonymKey
+      ? normalizeSearchText(productSearchSynonyms[synonymKey])
+      : "";
+
+    // Category synonyms
+    const categoryKeywords = normalizeSearchText(
+      categorySearchSynonyms[category] || ""
+    );
+
+    // Complete searchable content
+    const searchableText = normalizeSearchText([
+      name,
+      description,
+      category,
+      categoryNames[category] || "",
+      card.textContent,
+      synonyms,
+      categoryKeywords
+    ].join(" "));
+
+    const searchableWords = [...new Set(searchableText.split(" "))];
+
+    const matchesCategory =
+      activeCategory === "all" ||
+      category === activeCategory;
+
+    let relevanceScore = 0;
+
+    if (query) {
+
+      // Exact phrase matches
+      if (normalizedName === query) {
+        relevanceScore += 100;
+      } else if (normalizedName.includes(query)) {
+        relevanceScore += 70;
+      }
+
+      if (normalizedDescription.includes(query)) {
+        relevanceScore += 20;
+      }
+
+      if (synonyms.includes(query)) {
+        relevanceScore += 45;
+      }
+
+      // Individual word matching
+      let matchedWords = 0;
+
+      searchWords.forEach(searchWord => {
+
+        let bestMatch = 0;
+
+        searchableWords.forEach(productWord => {
+
+          if (searchWord === productWord) {
+            bestMatch = Math.max(bestMatch, 15);
+          } else if (
+            productWord.startsWith(searchWord) &&
+            searchWord.length >= 3
+          ) {
+            bestMatch = Math.max(bestMatch, 10);
+          } else if (
+            isFuzzyWordMatch(searchWord, productWord)
+          ) {
+            bestMatch = Math.max(bestMatch, 7);
+          }
+
+        });
+
+        if (bestMatch > 0) {
+          matchedWords++;
+          relevanceScore += bestMatch;
+        }
+
+      });
+
+      // Require every search word to match
+      if (matchedWords !== searchWords.length) {
+        relevanceScore = 0;
+      }
+
+    } else {
+      relevanceScore = 1;
+    }
+
+    const matchesSearch =
+      !query || relevanceScore > 0;
+
+    const visible = matchesCategory && matchesSearch;
+
+    card.hidden = !visible;
+
+    // Higher relevance appears first
+    card.style.order = query
+      ? String(-relevanceScore)
+      : String(index);
+
+    if (visible) {
+      visibleCount++;
+    }
+
+  });
+
+  // Update product count
+  if (productCount) {
+    productCount.textContent =
+      `${visibleCount} ${visibleCount === 1 ? "PRODUCT" : "PRODUCTS"}`;
+  }
+
+  // Keep category counts unchanged
+  categoryButtons.forEach(button => {
+
+    const category = button.dataset.category;
+    const countElement = button.querySelector(".ig-category-count");
+
+    if (!countElement) return;
+
+    const count = category === "all"
+      ? productCards.length
+      : productCards.filter(card =>
+          card.dataset.category === category
+        ).length;
+
+    countElement.textContent = count;
+
+  });
+
+  // Empty state
+  if (emptyMessage) {
+    emptyMessage.hidden = visibleCount !== 0;
+  }
+
+  if (productGrid) {
+    productGrid.hidden = visibleCount === 0;
+  }
+
+}
+
+
+
+  /* =========================================
+     CATEGORY NAVIGATION
+  ========================================= */
+
+  categoryButtons.forEach(button => {
+
     button.addEventListener("click", () => {
+
       activeCategory = button.dataset.category || "all";
 
-      categoryButtons.forEach((otherButton) => {
-        const isActive = otherButton === button;
+      categoryButtons.forEach(item => {
 
-        otherButton.classList.toggle("is-active", isActive);
-        otherButton.setAttribute(
+        const active = item === button;
+
+        item.classList.toggle("is-active", active);
+
+        item.setAttribute(
           "aria-pressed",
-          String(isActive)
+          String(active)
         );
+
       });
 
       filterProducts();
+
     });
+
   });
 
-  /* ================================================
-     SEARCH INPUT
-  ================================================ */
 
-  if (searchInput) {
-    searchInput.addEventListener("input", () => {
-      searchQuery = searchInput.value.trim().toLowerCase();
-      filterProducts();
-    });
+/* =========================================
+   SMART LIVE SEARCH INPUT
+========================================= */
+
+if (searchInput) {
+
+  searchInput.addEventListener("input", () => {
+
+    searchQuery = searchInput.value.trim();
+
+    filterProducts();
+
+  });
+
+}
+
+
+  /* =========================================
+     PRODUCT DETAIL MODAL
+  ========================================= */
+
+  function openProduct(card) {
+
+    const productName = card.dataset.productName || "Product";
+
+    const description =
+      card.dataset.description || "Contact our team for more information about this product.";
+
+    const category = card.dataset.category || "";
+
+    const image = card.querySelector(".ig-product-card__image img");
+
+    if (!image) return;
+
+    lastFocusedElement = document.activeElement;
+
+    modalImage.src = image.src;
+    modalImage.alt = image.alt || productName;
+
+    modalCategory.textContent =
+      categoryNames[category] || "IG CUSTOM PRINTING";
+
+    modalTitle.textContent = productName;
+
+    modalDescription.textContent = description;
+
+    // Reserved for future product-specific specifications.
+    modalDetails.replaceChildren();
+
+    // Dynamic quote email
+
+    modalQuote.href =
+      `mailto:sales@igteam.com?subject=${encodeURIComponent(
+        "Quote Request - " + productName
+      )}`;
+
+    // Move modal outside the main content to avoid
+    // clipping from the catalogue's overflow settings.
+
+    if (modal.parentElement !== document.body) {
+      document.body.appendChild(modal);
+    }
+
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+
+    document.body.style.overflow = "hidden";
+
+    const closeButton = modal.querySelector(
+      ".ig-product-modal__close"
+    );
+
+    closeButton?.focus();
+
   }
 
-  /* ================================================
-     KEYBOARD SHORTCUT: CTRL/CMD + K
-  ================================================ */
 
-  document.addEventListener("keydown", (event) => {
-    const isSearchShortcut =
+  /* =========================================
+     OPEN PRODUCT ON CLICK
+  ========================================= */
+
+  productCards.forEach(card => {
+
+    const button = card.querySelector(
+      ".ig-product-card__button"
+    );
+
+    button?.addEventListener("click", () => {
+      openProduct(card);
+    });
+
+  });
+
+
+  /* =========================================
+     CLOSE MODAL
+  ========================================= */
+
+  function closeProduct() {
+
+    if (!modal.classList.contains("is-open")) return;
+
+    modal.classList.remove("is-open");
+
+    modal.setAttribute("aria-hidden", "true");
+
+    document.body.style.overflow = "";
+
+    modalImage.removeAttribute("src");
+
+    if (lastFocusedElement) {
+      lastFocusedElement.focus();
+    }
+
+  }
+
+
+  modal.querySelectorAll("[data-close-modal]").forEach(element => {
+
+    element.addEventListener("click", closeProduct);
+
+  });
+
+
+  // Escape key
+
+  document.addEventListener("keydown", event => {
+
+    if (event.key === "Escape") {
+      closeProduct();
+    }
+
+  });
+
+
+  // Keep modal focus inside while open
+
+  modal.addEventListener("keydown", event => {
+
+    if (event.key !== "Tab") return;
+
+    const focusable = [
+      ...modal.querySelectorAll(
+        'button:not([disabled]), a[href], input:not([disabled])'
+      )
+    ].filter(element => element.offsetParent !== null);
+
+    if (!focusable.length) return;
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (
+      !event.shiftKey &&
+      document.activeElement === last
+    ) {
+      event.preventDefault();
+      first.focus();
+    }
+
+  });
+
+
+  /* =========================================
+     SEARCH SHORTCUT — CTRL / CMD + K
+  ========================================= */
+
+  document.addEventListener("keydown", event => {
+
+    const shortcut =
       (event.ctrlKey || event.metaKey) &&
       event.key.toLowerCase() === "k";
 
-    if (!isSearchShortcut) return;
+    if (!shortcut || !searchInput) return;
 
-    // Don't interfere with shortcuts on unrelated pages.
-    if (!catalog.contains(document.activeElement)) return;
+    if (modal.classList.contains("is-open")) return;
 
     event.preventDefault();
-    searchInput?.focus();
+    searchInput.focus();
+
+
+
   });
 
-  /* ================================================
+
+
+  // Apply category selected through the URL
+categoryButtons.forEach(button => {
+  const active = button.dataset.category === activeCategory;
+
+  button.classList.toggle("is-active", active);
+  button.setAttribute("aria-pressed", String(active));
+});
+
+
+  /* =========================================
      INITIALIZE
-  ================================================ */
+  ========================================= */
 
-  // Set the initial product count from the actual cards.
-  filterProducts();
+  // Initialize category counts and product filtering.
+updateCategoryCounts();
+filterProducts();
 
 })();
-
-
-
-
-
-
-
-
-/* =========================================
-   IG CUSTOM STUDIO — ARTWORK UPLOAD
-   Keeps uploaded artwork as reusable image data.
-========================================= */
-(() => {
-  const studio = document.querySelector(".ig-studio");
-  if (!studio) return;
-
-  const fileInput = studio.querySelector("#studio-file-input");
-  const artwork = studio.querySelector("#studio-artwork");
-  const saveButton = studio.querySelector("#studio-save-side");
-const message = studio.querySelector("#studio-message");
-  
-  const uploadTitle = studio.querySelector("#studio-upload-title");
-  const uploadHelp = studio.querySelector("#studio-upload-help");
-
-  if (!fileInput || !artwork) return;
-
-  fileInput.addEventListener("change", () => {
-    const file = fileInput.files?.[0];
-    if (!file) return;
-
-    const allowedTypes = [
-      "image/png",
-      "image/jpeg",
-      "image/webp"
-    ];
-
-    if (!allowedTypes.includes(file.type)) {
-      fileInput.value = "";
-      if (message) {
-        message.textContent =
-          "Please upload a PNG, JPG, or WebP image.";
-      }
-      return;
-    }
-
-    if (file.size > 10 * 1024 * 1024) {
-      fileInput.value = "";
-      if (message) {
-        message.textContent =
-          "Your file is too large. Please choose an image under 10 MB.";
-      }
-      return;
-    }
-
-    const reader = new FileReader();
-
-    reader.onload = () => {
-      if (typeof reader.result !== "string") {
-        if (message) {
-          message.textContent = "Could not read that image.";
-        }
-        return;
-      }
-
-      const testImage = new Image();
-
-      testImage.onload = () => {
-        artwork.src = reader.result;
-        artwork.hidden = false;
-
-        if (uploadTitle) {
-          uploadTitle.textContent = file.name;
-        }
-
-        if (uploadHelp) {
-          uploadHelp.textContent =
-            `${Math.round(file.size / 1024)} KB · Artwork uploaded`;
-        }
-
-        studio.dispatchEvent(
-          new Event("studio:artwork-loaded")
-        );
-
-        if (message) {
-          message.textContent = "Artwork uploaded successfully!";
-        }
-      };
-
-      testImage.onerror = () => {
-        if (message) {
-          message.textContent =
-            "This image could not be opened. Please try another file.";
-        }
-      };
-
-      testImage.src = reader.result;
-    };
-
-    reader.onerror = () => {
-      if (message) {
-        message.textContent = "Could not read that image. Please try again.";
-      }
-    };
-
-    reader.readAsDataURL(file);
-  });
-})();
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* IG STUDIO — SINGLE ARTWORK MOVE & RESIZE CONTROLLER */
-(() => {
-  const studio = document.querySelector(".ig-studio");
-  if (!studio) return;
-
-  const area = studio.querySelector("#studio-artwork-area");
-  const editor = studio.querySelector("#studio-artwork-editor");
-  const artwork = studio.querySelector("#studio-artwork");
-
-  const saveButton = studio.querySelector("#studio-save-side");
-const message = studio.querySelector("#studio-message");
-
-  if (!area || !editor || !artwork) return;
-
-  // Geometry is stored in pixels, not percentages.
-  let width = 0;
-  let x = 0;
-  let y = 0;
-
-  let selectedSide = "front";
-
-const designs = {
-  front: { src: "", width: 0, x: 0, y: 0, saved: false },
-  back:  { src: "", width: 0, x: 0, y: 0, saved: false }
-};
-
-studio.__designs = designs;
-
-  let action = null;
-  let startX = 0;
-  let startY = 0;
-  let startWidth = 0;
-  let startHeight = 0;
-  let startLeft = 0;
-  let startTop = 0;
-  let aspect = 1;
-  let activeHandle = "";
-
-  const MIN_WIDTH = 35;
-
-  
-function storeCurrentDesign() {
-  const design = designs[selectedSide];
-
-  if (!design) return;
-
-  design.src = artwork.getAttribute("src") || "";
-  design.width = width;
-  design.x = x;
-  design.y = y;
-}
-
-
-
-function restoreDesign(side) {
-  selectedSide = side;
-
-  const design = designs[side];
-
-  if (!design || !design.src) {
-    artwork.removeAttribute("src");
-    artwork.hidden = true;
-    editor.hidden = true;
-
-    width = 0;
-    x = 0;
-    y = 0;
-  } else {
-    artwork.src = design.src;
-    artwork.hidden = false;
-    editor.hidden = false;
-
-    width = design.width;
-    x = design.x;
-    y = design.y;
-
-    render();
-  }
-
-  editor.classList.remove("is-selected");
-  updateSaveButton();
-}
-
-
-
-studio.addEventListener("studio:side-change", (event) => {
-  storeCurrentDesign();
-  restoreDesign(event.detail.side);
-});
-
-
-  function updateSaveButton() {
-  if (!saveButton) return;
-
-  const sideName = selectedSide === "front" ? "FRONT" : "BACK";
-  const design = designs[selectedSide];
-
-  saveButton.textContent = design.saved
-    ? `✓ ${sideName} DESIGN SAVED`
-    : `✓ SAVE ${sideName} DESIGN`;
-
-  saveButton.classList.toggle("is-saved", design.saved);
-}
-
-if (saveButton) {
-  saveButton.addEventListener("click", () => {
-    const design = designs[selectedSide];
-
-    if (!design.src || editor.hidden) {
-      if (message) {
-        message.textContent = `Please upload artwork for the ${selectedSide} first.`;
-      }
-      return;
-    }
-
-    design.src = artwork.getAttribute("src") || "";
-    design.width = width;
-    design.x = x;
-    design.y = y;
-    design.saved = true;
-
-    updateSaveButton();
-
-    if (message) {
-      message.textContent = `${selectedSide === "front" ? "Front" : "Back"} design saved successfully!`;
-    }
-  });
-}
-
-  function render() {
-  editor.style.width = `${width}px`;
-  editor.style.height = "auto";
-  editor.style.transform = `translate(${x}px, ${y}px)`;
-
-  designs[selectedSide].src = artwork.getAttribute("src") || "";
-  designs[selectedSide].width = width;
-  designs[selectedSide].x = x;
-  designs[selectedSide].y = y;
-}
-
-  function startInteraction(event) {
-    if (editor.hidden || event.button !== 0) return;
-
-    const handle = event.target.closest(".ig-resize-handle");
-
-    action = handle ? "resize" : "move";
-    activeHandle = handle?.dataset.handle || "";
-
-    const rect = editor.getBoundingClientRect();
-
-    startX = event.clientX;
-    startY = event.clientY;
-    startWidth = rect.width;
-    startHeight = rect.height;
-    startLeft = x;
-    startTop = y;
-    aspect = rect.width / Math.max(rect.height, 1);
-
-    event.target.setPointerCapture(event.pointerId);
-    event.preventDefault();
-  }
-
-  function moveInteraction(event) {
-    if (!action) return;
-
-    const dx = event.clientX - startX;
-    const dy = event.clientY - startY;
-
-    if (action === "move") {
-      x = startLeft + dx;
-      y = startTop + dy;
-      render();
-      return;
-    }
-
-    // Corner signs determine the direction of resizing.
-    const signX = activeHandle.endsWith("e") ? 1 : -1;
-    const signY = activeHandle.startsWith("s") ? 1 : -1;
-
-    // Project pointer movement onto the corner's diagonal.
-    const projectedChange = dx * signX;
-
-let nextWidth = startWidth + projectedChange;
-
-    
-const maxWidth = Math.max(
-  MIN_WIDTH,
-  area.getBoundingClientRect().width * 3
-);
-
-nextWidth = Math.max(
-  MIN_WIDTH,
-  Math.min(maxWidth, nextWidth)
-);
-
-
-    const nextHeight = nextWidth / aspect;
-
-    // Keep the opposite corner anchored.
-    x = startLeft + (signX < 0 ? startWidth - nextWidth : 0);
-    y = startTop + (signY < 0 ? startHeight - nextHeight : 0);
-
-    width = nextWidth;
-    render();
-  }
-
-  function endInteraction() {
-    action = null;
-    activeHandle = "";
-  }
-
-  editor.addEventListener("pointerdown", startInteraction);
-  editor.addEventListener("pointermove", moveInteraction);
-  editor.addEventListener("pointerup", endInteraction);
-  editor.addEventListener("pointercancel", endInteraction);
-  editor.addEventListener("lostpointercapture", endInteraction);
-
-
-
-    // Select artwork when clicked; deselect when clicking outside.
-  function selectArtwork() {
-    editor.classList.add("is-selected");
-  }
-
-  function deselectArtwork() {
-    editor.classList.remove("is-selected");
-  }
-
-  editor.addEventListener("click", selectArtwork);
-
-  document.addEventListener("pointerdown", (event) => {
-    if (!editor.hidden && !editor.contains(event.target)) {
-      deselectArtwork();
-    }
-  });
-
-
- studio.addEventListener("studio:artwork-loaded", () => {
-  requestAnimationFrame(() => {
-    width = area.getBoundingClientRect().width;
-    x = 0;
-    y = 0;
-    editor.hidden = false;
-
-    designs[selectedSide].saved = false;
-    render();
-    updateSaveButton();
-  });
-});
-
-
-})();
-
-
-
-
-
-
-/* =========================================
-   IG STUDIO — T-SHIRT COLOR & SIDE PREVIEW
-========================================= */
-(() => {
-  const studio = document.querySelector(".ig-studio");
-  if (!studio) return;
-
-  const productImage = studio.querySelector("#studio-product-image");
-  const colorButtons = studio.querySelectorAll("[data-color]");
-  const positionButtons = studio.querySelectorAll("[data-position]");
-
-  if (!productImage) return;
-
-  const imageFolder = "images/mock-up/t-shirt/";
-
-  const colors = {
-    "#171717": "black",
-    "#f4f4f4": "white",
-    "#777777": "grey",
-    "#202b49": "blue",
-    "#bd1727": "red",
-    "#245b38": "green"
-  };
-
-  let selectedColor = "#171717";
-  let selectedSide = "front";
-
-  function updatePreview() {
-    const colorName = colors[selectedColor] || "black";
-    const imagePath = `${imageFolder}${colorName}-${selectedSide}.png`;
-
-    productImage.onerror = () => {
-      productImage.onerror = null;
-
-      const message = studio.querySelector("#studio-message");
-      if (message) {
-        message.textContent = `Could not load ${imagePath}. Check the image filename and folder path.`;
-      }
-    };
-
-    productImage.onload = () => {
-      productImage.onerror = null;
-
-      const message = studio.querySelector("#studio-message");
-      if (message) message.textContent = "";
-    };
-
-    productImage.src = imagePath;
-    console.log("Mockup path:", imagePath);
-console.log("Loaded image:", productImage.currentSrc);
-    productImage.alt = `${colorName} T-shirt, ${selectedSide} view`;
-  }
-
-  colorButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      selectedColor = button.dataset.color || "#171717";
-
-      colorButtons.forEach((otherButton) => {
-        const isSelected = otherButton === button;
-        otherButton.classList.toggle("is-selected", isSelected);
-        otherButton.setAttribute("aria-pressed", String(isSelected));
-      });
-
-      updatePreview();
-
-
-      
-
-
-
-    });
-  });
-
-  positionButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const side = button.dataset.position;
-
-      // Sleeve mockups are not available yet.
-      if (side === "sleeve") {
-        const message = studio.querySelector("#studio-message");
-        if (message) {
-          message.textContent =
-            "Sleeve preview will be available when sleeve mockups are added.";
-        }
-        return;
-      }
-
-      if (side !== "front" && side !== "back") return;
-
-      selectedSide = side;
-
-      studio.dispatchEvent(
-  new CustomEvent("studio:side-change", {
-    detail: { side }
-  })
-);
-
-      positionButtons.forEach((otherButton) => {
-        const isSelected = otherButton === button;
-        otherButton.classList.toggle("is-selected", isSelected);
-        otherButton.setAttribute("aria-pressed", String(isSelected));
-      });
-
-      updatePreview();
-    });
-  });
-
-  updatePreview();
-
-  const previewButton = studio.querySelector("#studio-preview");
-const combinedPreview = studio.querySelector("#studio-combined-preview");
-
-
-
-if (previewButton && combinedPreview) {
-  const closeButton = studio.querySelector("#studio-close-preview");
-
-
-async function renderShirtPreview(container, side, design) {
-  container.replaceChildren();
-
-  const colorName = colors[selectedColor] || "black";
-  const imagePath = `${imageFolder}${colorName}-${side}.png`;
-
-  const shirt = document.createElement("div");
-  shirt.className = "studio-preview-shirt";
-
-  const mockup = document.createElement("img");
-  mockup.className = "studio-preview-shirt__mockup";
-  mockup.src = imagePath;
-  mockup.alt = `${colorName} T-shirt, ${side} view`;
-
-  await new Promise((resolve, reject) => {
-    mockup.onload = resolve;
-    mockup.onerror = reject;
-    if (mockup.complete && mockup.naturalWidth) resolve();
-  });
-
-  shirt.appendChild(mockup);
-  container.appendChild(shirt);
-
-  if (design && design.src) {
-    console.log("Preview design:", side, design);
-    const artwork = document.createElement("img");
-    artwork.className = "studio-preview-shirt__artwork";
-    artwork.src = design.src;
-    artwork.alt = `${side} artwork`;
-
-    await new Promise((resolve, reject) => {
-      artwork.onload = resolve;
-      artwork.onerror = reject;
-      if (artwork.complete && artwork.naturalWidth) resolve();
-    });
-
-
-
-const area = studio.querySelector("#studio-artwork-area");
-const product = studio.querySelector(".ig-studio__product");
-
-if (area && product) {
-  const areaRect = area.getBoundingClientRect();
-  const productRect = product.getBoundingClientRect();
-  const shirtRect = shirt.getBoundingClientRect();
-
-  const scale = shirtRect.width / productRect.width;
-  const artworkHeight =
-    design.width * (artwork.naturalHeight / artwork.naturalWidth);
-
-  artwork.style.position = "absolute";
-  artwork.style.width = `${design.width * scale}px`;
-  artwork.style.height = "auto";
-
-  artwork.style.left =
-    `${(
-      areaRect.left - productRect.left +
-      areaRect.width / 2 + design.x
-    ) * scale}px`;
-
-  artwork.style.top =
-    `${(
-      areaRect.top - productRect.top +
-      (areaRect.height - artworkHeight) / 2 +
-      design.y
-    ) * scale}px`;
-
-  artwork.style.transform = "translateX(-50%)";
-}
-
-
-shirt.appendChild(artwork);
-
-    
-  }
-}
-
-
-
-previewButton.addEventListener("click", async () => {
-  const designs = studio.__designs;
-
-  if (!designs) {
-    console.error("Saved design data not found.");
-    return;
-  }
-
-  const frontContainer = studio.querySelector("#studio-preview-front");
-  const backContainer = studio.querySelector("#studio-preview-back");
-
-  if (!frontContainer || !backContainer) return;
-
-  // Show the preview first so its dimensions can be measured.
-  combinedPreview.hidden = false;
-
-  try {
-    // Wait for the browser to lay out the visible preview.
-    await new Promise(resolve => requestAnimationFrame(resolve));
-
-    await Promise.all([
-      renderShirtPreview(frontContainer, "front", designs.front),
-      renderShirtPreview(backContainer, "back", designs.back)
-    ]);
-  } catch (error) {
-    console.error("Could not render T-shirt preview:", error);
-  }
-});
-
-
-
-  if (closeButton) {
-    closeButton.addEventListener("click", () => {
-      combinedPreview.hidden = true;
-    });
-  }
-
-
-const downloadButton = studio.querySelector("#studio-download-preview");
-
-if (downloadButton) {
-  downloadButton.addEventListener("click", async () => {
-    if (typeof html2canvas !== "function") {
-      alert("Preview capture library is not loaded.");
-      return;
-    }
-
-    const originalText = downloadButton.textContent;
-    downloadButton.disabled = true;
-    downloadButton.textContent = "Preparing PNG...";
-
-    try {
-      await document.fonts.ready;
-
-      const canvas = await html2canvas(studio.querySelector("#studio-preview-capture"), {
-        backgroundColor: "#111111",
-        scale: 2,
-        useCORS: true,
-        allowTaint: false,
-        logging: false
-      });
-
-      const link = document.createElement("a");
-      link.download = "ig-custom-printing-design-preview.png";
-      link.href = canvas.toDataURL("image/png");
-      link.click();
-    } catch (error) {
-      console.error("Preview capture failed:", error);
-      alert("Could not create the PNG. Please try again.");
-    } finally {
-      downloadButton.disabled = false;
-      downloadButton.textContent = originalText;
-    }
-  });
-}
-
-}
-
-
-})();
-
-
-
-

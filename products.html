@@ -22,7 +22,7 @@
 
 
   <script src="script.js" defer></script>
-  <script src="products.js" defer></script>
+<script src="products.js" defer></script>
 
   
 </head>
@@ -61,10 +61,10 @@
             </span>
           </a>
 
-          <a href="#our-work" data-text="Our Work">
+          <a href="ig-editor.html" data-text="IG Editor">
             <span class="nav-roll">
-              <span>Our Work</span>
-              <span aria-hidden="true">Our Work</span>
+              <span>IG Editor</span>
+              <span aria-hidden="true">IG Editor</span>
             </span>
           </a>
 
@@ -126,1145 +126,989 @@
 
 <main class="ig-catalog-page">
 
-  
-  
-<!-- IG CUSTOM PRINTING — CUSTOM DESIGN STUDIO HERO -->
-<section class="ig-studio" id="custom-studio">
+ 
 
-  <!-- LEFT: INTRODUCTION -->
-  <div class="ig-studio__intro">
-    <p class="ig-studio__eyebrow">
-      <span></span> CUSTOM DESIGN STUDIO
-    </p>
 
-    <h1>
-      Your Design.<br>
-      <span>Your Product.</span><br>
-      In Real Time.
-    </h1>
 
-    <p class="ig-studio__description">
-      Upload your artwork, choose a product, and see an instant
-      mockup. Fast, easy, and made for your business.
-    </p>
 
-    <div class="ig-studio__actions">
-      <a href="#studio-upload" class="ig-studio__primary">
-        CREATE YOUR MOCKUP <span>↗</span>
-      </a>
-      <a href="#ig-products" class="ig-studio__secondary">
-        EXPLORE PRODUCTS
-      </a>
-    </div>
 
-    <div class="ig-studio__benefits">
-      <div><span>ϟ</span><p>FAST<br>TURNAROUND</p></div>
-      <i></i>
-      <div><span>♢</span><p>QUALITY<br>GUARANTEED</p></div>
-      <i></i>
-      <div><span>♧</span><p>LOCAL &amp;<br>TRUSTED</p></div>
-    </div>
+
+<!-- ==========================================
+     IG CUSTOM PRINTING — PRODUCT CATALOG
+========================================== -->
+
+<section class="ig-products-hero">
+  <div class="ig-products-hero__content">
+    <span class="ig-products-eyebrow">OUR PRODUCT COLLECTION</span>
+    <h1>Explore Our Full Product Line</h1>
+    <p>Custom printing for businesses, teams, events and everyday needs.</p>
   </div>
-
-  <!-- CENTER: LIVE PRODUCT MOCKUP -->
-  <div class="ig-studio__stage">
-    <div class="ig-studio__glow"></div>
-
-    <div class="ig-studio__platform"></div>
-
-    <div class="ig-studio__product" id="studio-product">
-      <img
-        id="studio-product-image"
-        src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1000&q=85"
-        alt="T-shirt product preview"
-      >
-
-      <div class="ig-studio__artwork-area" id="studio-artwork-area">
-        <div class="ig-artwork-editor" id="studio-artwork-editor" hidden>
-  <img id="studio-artwork" alt="Your uploaded artwork" draggable="false">
-
-  <span class="ig-resize-handle ig-resize-nw" data-handle="nw"></span>
-  <span class="ig-resize-handle ig-resize-ne" data-handle="ne"></span>
-  <span class="ig-resize-handle ig-resize-sw" data-handle="sw"></span>
-  <span class="ig-resize-handle ig-resize-se" data-handle="se"></span>
-</div>
-
-
-      </div>
-    </div>
-
-    <span class="ig-studio__stage-label">
-      LIVE PRODUCT PREVIEW <span>●</span>
-    </span>
-  </div>
-
-  <!-- RIGHT: DESIGN CONTROLS -->
-  <div class="ig-studio__panel">
-
-
-    <!-- UPLOAD -->
-    <label class="ig-studio__upload" id="studio-upload">
-      <input
-        type="file"
-        id="studio-file-input"
-        accept="image/png,image/jpeg,image/webp"
-      >
-
-      <span class="ig-studio__upload-icon">⇧</span>
-      <strong id="studio-upload-title">Upload Your Design</strong>
-      <small id="studio-upload-help">
-        PNG, JPG or WebP · Transparent PNG recommended
-      </small>
-      <span class="ig-studio__choose-file">CHOOSE FILE</span>
-      <small>or click here to browse</small>
-    </label>
-
-    <!-- PRODUCT SELECTION -->
-    <div class="ig-studio__section-heading">
-      <strong>Select a Product</strong>
-      <a href="#ig-products">View All Products ↗</a>
-    </div>
-
-    <div class="ig-studio__products">
-      <button type="button" class="is-selected" data-product="tshirt">
-        <span class="ig-studio__product-icon">T</span>
-        T-Shirt
-      </button>
-
-      <button type="button" data-product="hoodie">
-        <span class="ig-studio__product-icon">H</span>
-        Hoodie
-      </button>
-
-      <button type="button" data-product="longsleeve">
-        <span class="ig-studio__product-icon">L</span>
-        Long Sleeve
-      </button>
-
-      <button type="button" data-product="hat">
-        <span class="ig-studio__product-icon">C</span>
-        Hat
-      </button>
-
-      <button type="button" data-product="mug">
-        <span class="ig-studio__product-icon">M</span>
-        Mug
-      </button>
-    </div>
-
-    <!-- COLOR AND PLACEMENT -->
-    <div class="ig-studio__options">
-
-      <div>
-        <strong>Product Color</strong>
-        <div class="ig-studio__colors">
-          <button type="button" class="is-selected" data-color="#171717"
-            style="--swatch:#171717" aria-label="Black"></button>
-          <button type="button" data-color="#f4f4f4"
-            style="--swatch:#f4f4f4" aria-label="White"></button>
-          <button type="button" data-color="#777777"
-            style="--swatch:#777777" aria-label="Gray"></button>
-          <button type="button" data-color="#202b49"
-            style="--swatch:#202b49" aria-label="Navy"></button>
-          <button type="button" data-color="#bd1727"
-            style="--swatch:#bd1727" aria-label="Red"></button>
-          <button type="button" data-color="#245b38"
-            style="--swatch:#245b38" aria-label="Green"></button>
-        </div>
-      </div>
-
-      <div>
-        <strong>Design Position</strong>
-        <div class="ig-studio__positions">
-          <button type="button" class="is-selected" data-position="front">
-            <span>▣</span>Front
-          </button>
-          <button type="button" data-position="back">
-            <span>▣</span>Back
-          </button>
-          <button type="button" data-position="sleeve">
-            <span>▣</span>Sleeve
-          </button>
-        </div>
-      </div>
-
-    </div>
-
-    <button type="button" id="studio-save-side">
-  ✓ SAVE FRONT DESIGN
-</button>
-
-    <button type="button" class="ig-studio__preview-button" id="studio-preview">
-      PREVIEW MY DESIGN <span>↗</span>
-    </button>
-
-    
-<div id="studio-combined-preview" hidden>
-<div class="studio-preview-actions">
-  <button type="button" id="studio-download-preview">
-    ↓ Download Preview PNG
-  </button>
-
-  <button type="button" id="studio-close-preview">
-    ✕ Close Preview
-  </button>
-</div>
-
-<div id="studio-preview-capture">
-  <h2>Your Design Preview</h2>
-
-  <div class="studio-preview-grid">
-    <div class="studio-preview-card">
-      <h3>FRONT</h3>
-      <div id="studio-preview-front"></div>
-    </div>
-
-    <div class="studio-preview-card">
-      <h3>BACK</h3>
-      <div id="studio-preview-back"></div>
-    </div>
-  </div>
-</div>
-
-</div>
-
-
-  </div>
-
 </section>
-<!-- END CUSTOM DESIGN STUDIO HERO -->
 
 
+<section class="ig-products-layout">
 
+  <!-- LEFT CATEGORY SIDEBAR -->
+  <aside class="ig-products-sidebar">
 
-  <!-- =========================================
-       PRODUCT CATALOG INTRODUCTION
-  ========================================== -->
-  <section class="ig-catalog-intro" id="ig-products">
-
-    <div class="ig-catalog-intro__main">
-
-      <span class="ig-section-eyebrow">
-        <span></span>
-        THE PRODUCT COLLECTION
-      </span>
-
-      <h2>
-        Find your next
-        <span>favorite.</span>
-      </h2>
-
+    <div class="ig-products-sidebar__heading">
+      <span>EXPLORE</span>
+      <h2>Categories</h2>
     </div>
 
-    <p class="ig-catalog-intro__description">
-      From everyday essentials to standout brand materials,
-      discover products that help your business get noticed.
-      Find your product, explore the details, and make it yours.
-    </p>
+    <nav class="ig-category-nav" aria-label="Product categories">
 
-  </section>
-
-
-  <!-- =========================================
-       PRODUCT SEARCH AND CATEGORY NAVIGATION
-  ========================================== -->
-  <section class="ig-catalog-controls" aria-label="Browse products">
-
-    <label class="ig-product-search">
-
-      <span class="ig-product-search__icon" aria-hidden="true">
-        ⌕
-      </span>
-
-      <input
-        type="search"
-        id="ig-product-search"
-        placeholder="Search products..."
-        aria-label="Search products"
-      >
-
-      <span class="ig-product-search__hint">
-        SEARCH
-      </span>
-
-    </label>
-
-    <nav class="ig-product-categories" aria-label="Product categories">
-
-      <button
-        class="ig-category-button is-active"
-        type="button"
-        data-category="all"
-        aria-pressed="true"
-      >
-        All Products
+      <button class="ig-category-button is-active" data-category="all" aria-pressed="true">
+        <span>All Products</span>
+        <span class="ig-category-count" data-count="all">13</span>
       </button>
 
-      <button
-        class="ig-category-button"
-        type="button"
-        data-category="apparel"
-        aria-pressed="false"
-      >
-        Apparel
+      <button class="ig-category-button" data-category="apparel" aria-pressed="false">
+        <span>Custom Apparel</span>
       </button>
 
-      <button
-        class="ig-category-button"
-        type="button"
-        data-category="printing"
-        aria-pressed="false"
-      >
-        Business Printing
+      <button class="ig-category-button" data-category="signs" aria-pressed="false">
+        <span>Signs &amp; Banners</span>
       </button>
 
-      <button
-        class="ig-category-button"
-        type="button"
-        data-category="signs"
-        aria-pressed="false"
-      >
-        Signs &amp; Banners
+      <button class="ig-category-button" data-category="printing" aria-pressed="false">
+        <span>Business Printing</span>
       </button>
 
-      <button
-        class="ig-category-button"
-        type="button"
-        data-category="promotional"
-        aria-pressed="false"
-      >
-        Promotional
+      <button class="ig-category-button" data-category="promotional" aria-pressed="false">
+        <span>Promotional Products</span>
+      </button>
+
+      <button class="ig-category-button" data-category="stickers" aria-pressed="false">
+        <span>Stickers &amp; Decals</span>
+      </button>
+
+      <button class="ig-category-button" data-category="events" aria-pressed="false">
+        <span>Event &amp; Trade Show</span>
+      </button>
+
+      <button class="ig-category-button" data-category="vehicle" aria-pressed="false">
+        <span>Vehicle Graphics</span>
+      </button>
+
+      <button class="ig-category-button" data-category="embroidery" aria-pressed="false">
+        <span>Embroidery &amp; Teamwear</span>
       </button>
 
     </nav>
 
-  </section>
+
+    <div class="ig-products-sidebar__help">
+      <span class="ig-help-icon">↗</span>
+      <h3>Need Something Custom?</h3>
+      <p>Have a unique project or bulk order? Our team is here to help.</p>
+      <a href="mailto:sales@igteam.com">Request a Quote ↗</a>
+    </div>
+
+  </aside>
 
 
-  <!-- =========================================
-       PRODUCT GRID
-  ========================================== -->
-  <section class="ig-product-collection" aria-label="Our products">
+  <!-- MAIN PRODUCT AREA -->
+  <div class="ig-products-main">
 
-    <div class="ig-product-collection__heading">
+    <div class="ig-products-toolbar">
 
-      <p>
-        <span class="ig-product-collection__heading-dot"></span>
-        EXPLORE THE COLLECTION
-      </p>
+      <div class="ig-products-toolbar__intro">
+        <span>THE IG COLLECTION</span>
+        <h2>Find Your Product.</h2>
+      </div>
 
-      <span id="ig-product-count">
-        12 PRODUCTS
-      </span>
+      <div class="ig-products-search">
+        <span aria-hidden="true">⌕</span>
+        <input
+          type="search"
+          id="ig-product-search"
+          placeholder="Search products..."
+          aria-label="Search products"
+        >
+        <kbd>⌘ K</kbd>
+      </div>
 
     </div>
 
 
+    <div class="ig-products-results">
+      <span id="ig-product-count">13 PRODUCTS</span>
+      <span>Explore our collection</span>
+    </div>
+
+
+    <!-- PRODUCT GRID -->
     <div class="ig-product-grid" id="ig-product-grid">
 
 
-      <!-- PRODUCT 01: T-SHIRTS -->
-      <article
-        class="ig-product-card"
+      <!-- APPAREL -->
+
+      <article class="ig-product-card"
         data-category="apparel"
-        data-product-name="custom t-shirts"
-      >
+        data-product-name="T-Shirt"
+        data-description="Custom printed T-shirts for businesses, teams, events and everyday wear.">
 
-        <a
-          class="ig-product-card__image"
-          href="product.html?item=tshirts"
-          aria-label="View Custom T-Shirts"
-        >
-
-          <img
-            src="./images/products/Custom-T-Shirts-1.png"
-            alt="T-shirts for custom printing"
-            loading="lazy"
-          >
-
-          <span class="ig-product-card__badge">
-            BESTSELLER
-          </span>
-
-          <span class="ig-product-card__number">
-            01
-          </span>
-
-          <span class="ig-product-card__image-action" aria-hidden="true">
-            ↗
-          </span>
-
-        </a>
-
-        <div class="ig-product-card__body">
-
-          <p class="ig-product-card__category">
-            APPAREL &amp; EMBROIDERY
-          </p>
-
-          <h3>
-            <a href="product.html?item=tshirts">
-              Custom T-Shirts
-            </a>
-          </h3>
-
-          <p class="ig-product-card__description">
-            Make your brand wearable with custom tees for teams,
-            businesses, and events.
-          </p>
-
-          <div class="ig-product-card__footer">
-
-            <div class="ig-product-card__price">
-              <span>DEMO PRICE FROM</span>
-              <strong>$8.99</strong>
-            </div>
-
-            <a
-              class="ig-product-card__link"
-              href="product.html?item=tshirts"
-            >
-              View Product
-              <span aria-hidden="true">↗</span>
-            </a>
-
+        <button class="ig-product-card__button" type="button">
+          <div class="ig-product-card__image">
+            <img src="images/products/apparel-tshirt.webp"
+              alt="Custom printed T-shirt" loading="lazy">
           </div>
-
-        </div>
-
+          <div class="ig-product-card__info">
+            <div>
+              <span class="ig-product-card__category">APPAREL</span>
+              <h3>T-Shirts</h3>
+            </div>
+            <span class="ig-product-card__arrow">↗</span>
+          </div>
+        </button>
       </article>
 
 
-      <!-- PRODUCT 02: HOODIES -->
-      <article
-        class="ig-product-card"
+      <article class="ig-product-card"
         data-category="apparel"
-        data-product-name="hoodies sweatshirts"
-      >
+        data-product-name="Hoodie"
+        data-description="Custom hoodies for teams, businesses, organizations and personal branding.">
 
-        <a
-          class="ig-product-card__image"
-          href="product.html?item=hoodies"
-          aria-label="View Hoodies and Sweatshirts"
-        >
-
-          <img
-            src="./images/products/Hoodies-Sweatshirts.png"
-            alt="Casual hoodie"
-            loading="lazy"
-          >
-
-          <span class="ig-product-card__number">02</span>
-          <span class="ig-product-card__image-action" aria-hidden="true">↗</span>
-
-        </a>
-
-        <div class="ig-product-card__body">
-
-          <p class="ig-product-card__category">
-            APPAREL &amp; EMBROIDERY
-          </p>
-
-          <h3>
-            <a href="product.html?item=hoodies">
-              Hoodies &amp; Sweatshirts
-            </a>
-          </h3>
-
-          <p class="ig-product-card__description">
-            Comfortable custom layers for your team, staff,
-            or everyday merchandise.
-          </p>
-
-          <div class="ig-product-card__footer">
-
-            <div class="ig-product-card__price">
-              <span>DEMO PRICE FROM</span>
-              <strong>$24.99</strong>
-            </div>
-
-            <a class="ig-product-card__link" href="product.html?item=hoodies">
-              View Product <span aria-hidden="true">↗</span>
-            </a>
-
+        <button class="ig-product-card__button" type="button">
+          <div class="ig-product-card__image">
+            <img src="images/products/apparel-hoodie.webp"
+              alt="Custom hoodie" loading="lazy">
           </div>
-
-        </div>
-
+          <div class="ig-product-card__info">
+            <div>
+              <span class="ig-product-card__category">APPAREL</span>
+              <h3>Hoodies</h3>
+            </div>
+            <span class="ig-product-card__arrow">↗</span>
+          </div>
+        </button>
       </article>
 
 
-      <!-- PRODUCT 03: BUSINESS CARDS -->
-      <article
-        class="ig-product-card"
-        data-category="printing"
-        data-product-name="business cards"
-      >
-
-        <a
-          class="ig-product-card__image"
-          href="product.html?item=business-cards"
-          aria-label="View Business Cards"
-        >
-
-          <img
-            src="./images/products/Business-Cards.png"
-            alt="Printed stationery and business materials"
-            loading="lazy"
-          >
-
-          <span class="ig-product-card__number">03</span>
-          <span class="ig-product-card__image-action" aria-hidden="true">↗</span>
-
-        </a>
-
-        <div class="ig-product-card__body">
-
-          <p class="ig-product-card__category">
-            BUSINESS PRINTING
-          </p>
-
-          <h3>
-            <a href="product.html?item=business-cards">
-              Business Cards
-            </a>
-          </h3>
-
-          <p class="ig-product-card__description">
-            Make a lasting first impression with professional,
-            custom-branded business cards.
-          </p>
-
-          <div class="ig-product-card__footer">
-
-            <div class="ig-product-card__price">
-              <span>DEMO PRICE FROM</span>
-              <strong>$29.99</strong>
-            </div>
-
-            <a class="ig-product-card__link" href="product.html?item=business-cards">
-              View Product <span aria-hidden="true">↗</span>
-            </a>
-
-          </div>
-
-        </div>
-
-      </article>
-
-
-      <!-- PRODUCT 04: BANNERS -->
-      <article
-        class="ig-product-card"
-        data-category="signs"
-        data-product-name="banners displays"
-      >
-
-        <a
-          class="ig-product-card__image"
-          href="product.html?item=banners"
-          aria-label="View Banners"
-        >
-
-          <img
-            src="./images/products/Banners.png"
-            alt="Event display and promotional setup"
-            loading="lazy"
-          >
-
-          <span class="ig-product-card__number">04</span>
-          <span class="ig-product-card__image-action" aria-hidden="true">↗</span>
-
-        </a>
-
-        <div class="ig-product-card__body">
-
-          <p class="ig-product-card__category">
-            SIGNS &amp; DISPLAYS
-          </p>
-
-          <h3>
-            <a href="product.html?item=banners">
-              Banners
-            </a>
-          </h3>
-
-          <p class="ig-product-card__description">
-            Promote your business or event with bold,
-            attention-grabbing displays.
-          </p>
-
-          <div class="ig-product-card__footer">
-
-            <div class="ig-product-card__price">
-              <span>DEMO PRICE FROM</span>
-              <strong>$49.99</strong>
-            </div>
-
-            <a class="ig-product-card__link" href="product.html?item=banners">
-              View Product <span aria-hidden="true">↗</span>
-            </a>
-
-          </div>
-
-        </div>
-
-      </article>
-
-
-      <!-- PRODUCT 05: YARD SIGNS -->
-      <article
-        class="ig-product-card"
-        data-category="signs"
-        data-product-name="yard signs outdoor signs"
-      >
-
-        <a
-          class="ig-product-card__image"
-          href="product.html?item=yard-signs"
-          aria-label="View Yard Signs"
-        >
-
-          <img
-            src="./images/products/Yard Signs.png"
-            alt="Outdoor promotional signage"
-            loading="lazy"
-          >
-
-          <span class="ig-product-card__number">05</span>
-          <span class="ig-product-card__image-action" aria-hidden="true">↗</span>
-
-        </a>
-
-        <div class="ig-product-card__body">
-
-          <p class="ig-product-card__category">
-            SIGNS &amp; DISPLAYS
-          </p>
-
-          <h3>
-            <a href="product.html?item=yard-signs">
-              Yard Signs
-            </a>
-          </h3>
-
-          <p class="ig-product-card__description">
-            Get your message noticed at events, properties,
-            and around your local area.
-          </p>
-
-          <div class="ig-product-card__footer">
-
-            <div class="ig-product-card__price">
-              <span>DEMO PRICE FROM</span>
-              <strong>$19.99</strong>
-            </div>
-
-            <a class="ig-product-card__link" href="product.html?item=yard-signs">
-              View Product <span aria-hidden="true">↗</span>
-            </a>
-
-          </div>
-
-        </div>
-
-      </article>
-
-
-      <!-- PRODUCT 06: CAR MAGNETS -->
-      <article
-        class="ig-product-card"
-        data-category="signs"
-        data-product-name="car magnets vehicle graphics"
-      >
-
-        <a
-          class="ig-product-card__image"
-          href="product.html?item=car-magnets"
-          aria-label="View Car Magnets"
-        >
-
-          <img
-            src="./images/products/Car-Magnets.png"
-            alt="Vehicle exterior"
-            loading="lazy"
-          >
-
-          <span class="ig-product-card__number">06</span>
-          <span class="ig-product-card__image-action" aria-hidden="true">↗</span>
-
-        </a>
-
-        <div class="ig-product-card__body">
-
-          <p class="ig-product-card__category">
-            SIGNS &amp; VEHICLE BRANDING
-          </p>
-
-          <h3>
-            <a href="product.html?item=car-magnets">
-              Car Magnets
-            </a>
-          </h3>
-
-          <p class="ig-product-card__description">
-            Turn your vehicle into a practical moving advertisement
-            for your business.
-          </p>
-
-          <div class="ig-product-card__footer">
-
-            <div class="ig-product-card__price">
-              <span>DEMO PRICE FROM</span>
-              <strong>$24.99</strong>
-            </div>
-
-            <a class="ig-product-card__link" href="product.html?item=car-magnets">
-              View Product <span aria-hidden="true">↗</span>
-            </a>
-
-          </div>
-
-        </div>
-
-      </article>
-
-
-      <!-- PRODUCT 07: STICKERS -->
-      <article
-        class="ig-product-card"
-        data-category="printing"
-        data-product-name="stickers labels decals"
-      >
-
-        <a
-          class="ig-product-card__image"
-          href="product.html?item=stickers"
-          aria-label="View Stickers and Labels"
-        >
-
-          <img
-            src="./images/products/Stickers-Labels.png"
-            alt="Decorative stickers and labels"
-            loading="lazy"
-          >
-
-          <span class="ig-product-card__badge">POPULAR</span>
-          <span class="ig-product-card__number">07</span>
-          <span class="ig-product-card__image-action" aria-hidden="true">↗</span>
-
-        </a>
-
-        <div class="ig-product-card__body">
-
-          <p class="ig-product-card__category">
-            BUSINESS PRINTING
-          </p>
-
-          <h3>
-            <a href="product.html?item=stickers">
-              Stickers &amp; Labels
-            </a>
-          </h3>
-
-          <p class="ig-product-card__description">
-            Add a distinctive touch to packaging, products,
-            promotions, and giveaways.
-          </p>
-
-          <div class="ig-product-card__footer">
-
-            <div class="ig-product-card__price">
-              <span>DEMO PRICE FROM</span>
-              <strong>$9.99</strong>
-            </div>
-
-            <a class="ig-product-card__link" href="product.html?item=stickers">
-              View Product <span aria-hidden="true">↗</span>
-            </a>
-
-          </div>
-
-        </div>
-
-      </article>
-
-
-      <!-- PRODUCT 08: FLYERS -->
-      <article
-        class="ig-product-card"
-        data-category="printing"
-        data-product-name="flyers promotional leaflets"
-      >
-
-        <a
-          class="ig-product-card__image"
-          href="product.html?item=flyers"
-          aria-label="View Flyers"
-        >
-
-          <img
-            src="./images/products/Flyers.png"
-            alt="Printed promotional material"
-            loading="lazy"
-          >
-
-          <span class="ig-product-card__number">08</span>
-          <span class="ig-product-card__image-action" aria-hidden="true">↗</span>
-
-        </a>
-
-        <div class="ig-product-card__body">
-
-          <p class="ig-product-card__category">
-            BUSINESS PRINTING
-          </p>
-
-          <h3>
-            <a href="product.html?item=flyers">
-              Flyers
-            </a>
-          </h3>
-
-          <p class="ig-product-card__description">
-            Share your offers, events, and announcements
-            with eye-catching printed flyers.
-          </p>
-
-          <div class="ig-product-card__footer">
-
-            <div class="ig-product-card__price">
-              <span>DEMO PRICE FROM</span>
-              <strong>$39.99</strong>
-            </div>
-
-            <a class="ig-product-card__link" href="product.html?item=flyers">
-              View Product <span aria-hidden="true">↗</span>
-            </a>
-
-          </div>
-
-        </div>
-
-      </article>
-
-
-      <!-- PRODUCT 09: BROCHURES -->
-      <article
-        class="ig-product-card"
-        data-category="printing"
-        data-product-name="brochures booklets"
-      >
-
-        <a
-          class="ig-product-card__image"
-          href="product.html?item=brochures"
-          aria-label="View Brochures"
-        >
-
-          <img
-            src="./images/products/Brochures.png"
-            alt="Printed booklet"
-            loading="lazy"
-          >
-
-          <span class="ig-product-card__number">09</span>
-          <span class="ig-product-card__image-action" aria-hidden="true">↗</span>
-
-        </a>
-
-        <div class="ig-product-card__body">
-
-          <p class="ig-product-card__category">
-            BUSINESS PRINTING
-          </p>
-
-          <h3>
-            <a href="product.html?item=brochures">
-              Brochures
-            </a>
-          </h3>
-
-          <p class="ig-product-card__description">
-            Present your services, products, and company story
-            in a polished printed format.
-          </p>
-
-          <div class="ig-product-card__footer">
-
-            <div class="ig-product-card__price">
-              <span>DEMO PRICE FROM</span>
-              <strong>$69.99</strong>
-            </div>
-
-            <a class="ig-product-card__link" href="product.html?item=brochures">
-              View Product <span aria-hidden="true">↗</span>
-            </a>
-
-          </div>
-
-        </div>
-
-      </article>
-
-
-      <!-- PRODUCT 10: CUSTOM SIGNS -->
-      <article
-        class="ig-product-card"
-        data-category="signs"
-        data-product-name="custom business signs storefront signs"
-      >
-
-        <a
-          class="ig-product-card__image"
-          href="product.html?item=custom-signs"
-          aria-label="View Custom Signs"
-        >
-
-          <img
-            src="./images/products/Custom-Signs.png"
-            alt="Business signage"
-            loading="lazy"
-          >
-
-          <span class="ig-product-card__number">10</span>
-          <span class="ig-product-card__image-action" aria-hidden="true">↗</span>
-
-        </a>
-
-        <div class="ig-product-card__body">
-
-          <p class="ig-product-card__category">
-            SIGNS &amp; DISPLAYS
-          </p>
-
-          <h3>
-            <a href="product.html?item=custom-signs">
-              Custom Signs
-            </a>
-          </h3>
-
-          <p class="ig-product-card__description">
-            Give your storefront, office, or event a clear,
-            professional visual identity.
-          </p>
-
-          <div class="ig-product-card__footer">
-
-            <div class="ig-product-card__price">
-              <span>DEMO PRICE FROM</span>
-              <strong>$79.99</strong>
-            </div>
-
-            <a class="ig-product-card__link" href="product.html?item=custom-signs">
-              View Product <span aria-hidden="true">↗</span>
-            </a>
-
-          </div>
-
-        </div>
-
-      </article>
-
-
-      <!-- PRODUCT 11: HATS & CAPS -->
-      <article
-        class="ig-product-card"
+      <article class="ig-product-card"
         data-category="apparel"
-        data-product-name="hats caps embroidered hats"
-      >
+        data-product-name="Polo Shirt"
+        data-description="Professional custom polo shirts for company uniforms and branded apparel.">
 
-        <a
-          class="ig-product-card__image"
-          href="product.html?item=hats"
-          aria-label="View Hats and Caps"
-        >
-
-          <img
-            src="./images/products/Hats-Caps.png"
-            alt="Baseball cap"
-            loading="lazy"
-          >
-
-          <span class="ig-product-card__number">11</span>
-          <span class="ig-product-card__image-action" aria-hidden="true">↗</span>
-
-        </a>
-
-        <div class="ig-product-card__body">
-
-          <p class="ig-product-card__category">
-            APPAREL &amp; EMBROIDERY
-          </p>
-
-          <h3>
-            <a href="product.html?item=hats">
-              Hats &amp; Caps
-            </a>
-          </h3>
-
-          <p class="ig-product-card__description">
-            Top off your look with custom-branded caps
-            for your team or business.
-          </p>
-
-          <div class="ig-product-card__footer">
-
-            <div class="ig-product-card__price">
-              <span>DEMO PRICE FROM</span>
-              <strong>$14.99</strong>
-            </div>
-
-            <a class="ig-product-card__link" href="product.html?item=hats">
-              View Product <span aria-hidden="true">↗</span>
-            </a>
-
+        <button class="ig-product-card__button" type="button">
+          <div class="ig-product-card__image">
+            <img src="images/products/apparel-polo.webp"
+              alt="Custom polo shirt" loading="lazy">
           </div>
-
-        </div>
-
+          <div class="ig-product-card__info">
+            <div>
+              <span class="ig-product-card__category">APPAREL</span>
+              <h3>Polo Shirts</h3>
+            </div>
+            <span class="ig-product-card__arrow">↗</span>
+          </div>
+        </button>
       </article>
 
 
-      <!-- PRODUCT 12: PROMOTIONAL PRODUCTS -->
-      <article
-        class="ig-product-card"
-        data-category="promotional"
-        data-product-name="promotional products mugs branded gifts"
-      >
+      <article class="ig-product-card"
+        data-category="apparel"
+        data-product-name="Long Sleeve Shirt"
+        data-description="Custom long sleeve shirts for branded apparel and team clothing.">
 
-        <a
-          class="ig-product-card__image"
-          href="product.html?item=promotional"
-          aria-label="View Promotional Products"
-        >
-
-          <img
-            src="./images/products/Promotional-Products.png"
-            alt="Ceramic mug"
-            loading="lazy"
-          >
-
-          <span class="ig-product-card__number">12</span>
-          <span class="ig-product-card__image-action" aria-hidden="true">↗</span>
-
-        </a>
-
-        <div class="ig-product-card__body">
-
-          <p class="ig-product-card__category">
-            PROMOTIONAL PRODUCTS
-          </p>
-
-          <h3>
-            <a href="product.html?item=promotional">
-              Promotional Products
-            </a>
-          </h3>
-
-          <p class="ig-product-card__description">
-            Put your brand on useful everyday items,
-            gifts, and customer giveaways.
-          </p>
-
-          <div class="ig-product-card__footer">
-
-            <div class="ig-product-card__price">
-              <span>DEMO PRICE FROM</span>
-              <strong>$12.99</strong>
-            </div>
-
-            <a class="ig-product-card__link" href="product.html?item=promotional">
-              View Product <span aria-hidden="true">↗</span>
-            </a>
-
+        <button class="ig-product-card__button" type="button">
+          <div class="ig-product-card__image">
+            <img src="images/products/Black Custom Printing Shirt Mockup.webp"
+              alt="Custom long sleeve shirt" loading="lazy">
           </div>
-
-        </div>
-
+          <div class="ig-product-card__info">
+            <div>
+              <span class="ig-product-card__category">APPAREL</span>
+              <h3>Long Sleeve Shirts</h3>
+            </div>
+            <span class="ig-product-card__arrow">↗</span>
+          </div>
+        </button>
       </article>
+
+
+      <article class="ig-product-card"
+        data-category="apparel"
+        data-product-name="Custom Jackets"
+        data-description="Custom branded jackets for employees, teams and organizations.">
+
+        <button class="ig-product-card__button" type="button">
+          <div class="ig-product-card__image">
+            <img src="images/products/Palmetto Construction Jacket Mockup.webp"
+              alt="Custom jacket" loading="lazy">
+          </div>
+          <div class="ig-product-card__info">
+            <div>
+              <span class="ig-product-card__category">APPAREL</span>
+              <h3>Jackets</h3>
+            </div>
+            <span class="ig-product-card__arrow">↗</span>
+          </div>
+        </button>
+      </article>
+
+
+
+
+
+<!-- ==========================================
+     01. CUSTOM APPAREL — 13 ADDITIONAL
+========================================== -->
+
+<article class="ig-product-card" data-category="apparel" data-product-name="Tank Tops" data-description="Custom printed tank tops for teams, events, fitness brands and casual apparel.">
+  <button class="ig-product-card__button" type="button">
+    <div class="ig-product-card__image"><img src="images/products/apparel-tank-tops.webp" alt="Custom tank tops" loading="lazy"></div>
+    <div class="ig-product-card__info"><div><span class="ig-product-card__category">APPAREL</span><h3>Tank Tops</h3></div><span class="ig-product-card__arrow">↗</span></div>
+  </button>
+</article>
+
+<article class="ig-product-card" data-category="apparel" data-product-name="Crewneck Sweatshirts" data-description="Custom crewneck sweatshirts for branded clothing, teams and organizations.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Crewneck-Sweatshirt.webp" alt="Crewneck sweatshirts" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">APPAREL</span><h3>Crewneck Sweatshirts</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="apparel" data-product-name="Zip-Up Hoodies" data-description="Custom zip-up hoodies for company apparel, clubs and teams.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/zip-up-hoodies.webp" alt="Zip up hoodies" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">APPAREL</span><h3>Zip-Up Hoodies</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="apparel" data-product-name="Performance Shirts" data-description="Custom performance apparel for active teams, sports and events.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/performance-shirt.webp" alt="Performance shirts" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">APPAREL</span><h3>Performance Shirts</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="apparel" data-product-name="Athletic Jerseys" data-description="Custom jerseys for sports teams, leagues and athletic organizations.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Athletic-Jerseys.webp" alt="Athletic jerseys" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">APPAREL</span><h3>Athletic Jerseys</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="apparel" data-product-name="Sportswear" data-description="Branded sportswear for teams, clubs and athletic programs.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/sportswear.webp" alt="Custom sportswear" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">APPAREL</span><h3>Sportswear</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="apparel" data-product-name="Work Shirts" data-description="Custom work shirts for business uniforms and employee apparel.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/work-shirts.webp" alt="Work shirts" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">APPAREL</span><h3>Work Shirts</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="apparel" data-product-name="Work Pants" data-description="Branded workwear and uniform options for professional teams.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Workwear-Set.webp" alt="Workwear" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">APPAREL</span><h3>Workwear</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="apparel" data-product-name="Tank Jerseys" data-description="Custom sleeveless jerseys for sports teams and events.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Tank-Jerseys.webp" alt="Tank jerseys" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">APPAREL</span><h3>Tank Jerseys</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="apparel" data-product-name="Aprons" data-description="Custom branded aprons for restaurants, hospitality and businesses.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Aprons.webp" alt="Custom aprons" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">APPAREL</span><h3>Aprons</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="apparel" data-product-name="Custom Shorts" data-description="Custom shorts for teams, athletic programs and branded apparel.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Custom-Shorts.webp" alt="Custom shorts" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">APPAREL</span><h3>Custom Shorts</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="apparel" data-product-name="Windbreakers" data-description="Branded lightweight windbreakers for teams and businesses.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Windbreaker.webp" alt="Custom windbreakers" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">APPAREL</span><h3>Windbreakers</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="apparel" data-product-name="Custom Beanies" data-description="Custom branded beanies for teams, companies and promotional campaigns.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Beanies.webp" alt="Custom beanies" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">APPAREL</span><h3>Beanies</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+
+
+
+
+
+      <!-- SIGNS & BANNERS -->
+
+      <article class="ig-product-card"
+        data-category="signs"
+        data-product-name="Vinyl Banners"
+        data-description="Custom vinyl banners for business promotions, events and advertising.">
+
+        <button class="ig-product-card__button" type="button">
+          <div class="ig-product-card__image">
+            <img src="images/products/Custom Printing Vinyl Banner Display.webp"
+              alt="Custom vinyl banner" loading="lazy">
+          </div>
+          <div class="ig-product-card__info">
+            <div>
+              <span class="ig-product-card__category">SIGNS &amp; BANNERS</span>
+              <h3>Vinyl Banners</h3>
+            </div>
+            <span class="ig-product-card__arrow">↗</span>
+          </div>
+        </button>
+      </article>
+
+
+      <article class="ig-product-card"
+        data-category="signs"
+        data-product-name="Retractable Banners"
+        data-description="Portable retractable banner displays for events, exhibitions and businesses.">
+
+        <button class="ig-product-card__button" type="button">
+          <div class="ig-product-card__image">
+            <img src="images/products/Bold Black and Orange Banner Mockup.webp"
+              alt="Retractable banner" loading="lazy">
+          </div>
+          <div class="ig-product-card__info">
+            <div>
+              <span class="ig-product-card__category">SIGNS &amp; BANNERS</span>
+              <h3>Retractable Banners</h3>
+            </div>
+            <span class="ig-product-card__arrow">↗</span>
+          </div>
+        </button>
+      </article>
+
+
+      <article class="ig-product-card"
+        data-category="signs"
+        data-product-name="A-Frame Signs"
+        data-description="Portable A-frame signs for storefronts, sidewalks and promotions.">
+
+        <button class="ig-product-card__button" type="button">
+          <div class="ig-product-card__image">
+            <img src="images/products/Branded A-Frame Printing Signs.webp"
+              alt="Custom A-frame sign" loading="lazy">
+          </div>
+          <div class="ig-product-card__info">
+            <div>
+              <span class="ig-product-card__category">SIGNS &amp; BANNERS</span>
+              <h3>A-Frame Signs</h3>
+            </div>
+            <span class="ig-product-card__arrow">↗</span>
+          </div>
+        </button>
+      </article>
+
+
+      <article class="ig-product-card"
+        data-category="signs"
+        data-product-name="Yard Signs"
+        data-description="Custom yard signs for real estate, construction, events and advertising.">
+
+        <button class="ig-product-card__button" type="button">
+          <div class="ig-product-card__image">
+            <img src="images/products/Construction Yard Signs Portfolio.webp"
+              alt="Custom yard signs" loading="lazy">
+          </div>
+          <div class="ig-product-card__info">
+            <div>
+              <span class="ig-product-card__category">SIGNS &amp; BANNERS</span>
+              <h3>Yard Signs</h3>
+            </div>
+            <span class="ig-product-card__arrow">↗</span>
+          </div>
+        </button>
+      </article>
+
+
+      <article class="ig-product-card"
+        data-category="signs"
+        data-product-name="Acrylic Signs"
+        data-description="Professional acrylic signage for offices, storefronts and business interiors.">
+
+        <button class="ig-product-card__button" type="button">
+          <div class="ig-product-card__image">
+            <img src="images/products/Illuminated IG Custom Printing Sign.webp"
+              alt="Custom acrylic sign" loading="lazy">
+          </div>
+          <div class="ig-product-card__info">
+            <div>
+              <span class="ig-product-card__category">SIGNS &amp; BANNERS</span>
+              <h3>Acrylic Signs</h3>
+            </div>
+            <span class="ig-product-card__arrow">↗</span>
+          </div>
+        </button>
+      </article>
+
+
+      
+<!-- ==========================================
+     02. SIGNS & BANNERS — 20 ADDITIONAL
+========================================== -->
+
+<article class="ig-product-card" data-category="signs" data-product-name="Real Estate Signs" data-description="Custom real estate signs for property listings, open houses and agents.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/real-estate-signs.webp" alt="Real estate signs" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">SIGNS &amp; BANNERS</span><h3>Real Estate Signs</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="signs" data-product-name="Construction Signs" data-description="Jobsite and construction signage for contractors and building projects.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Construction-signs.webp" alt="Construction signs" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">SIGNS &amp; BANNERS</span><h3>Construction Signs</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="signs" data-product-name="Corrugated Plastic Signs" data-description="Lightweight printed corrugated plastic signs for promotions, properties and events.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Corrugated-plastic-Signs.webp" alt="Corrugated plastic signs" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">SIGNS &amp; BANNERS</span><h3>Corrugated Plastic Signs</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="signs" data-product-name="Aluminum Signs" data-description="Durable aluminum signs for outdoor advertising, businesses and facilities.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Aluminum-Signs.webp" alt="Aluminum signs" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">SIGNS &amp; BANNERS</span><h3>Aluminum Signs</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="signs" data-product-name="Metal Signs" data-description="Custom metal signage for business, property and promotional applications.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Metal-Signs.webp" alt="Metal signs" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">SIGNS &amp; BANNERS</span><h3>Metal Signs</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="signs" data-product-name="PVC Signs" data-description="Custom PVC signage for indoor and outdoor business displays.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/PVC-Signs.webp" alt="PVC signs" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">SIGNS &amp; BANNERS</span><h3>PVC Signs</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="signs" data-product-name="Foam Board Signs" data-description="Lightweight foam board displays for presentations, retail and events.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Foam-Board-Signs.webp" alt="Foam board signs" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">SIGNS &amp; BANNERS</span><h3>Foam Board Signs</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="signs" data-product-name="Storefront Signs" data-description="Custom storefront signage to make your business visible and recognizable.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/storefront-signs.webp" alt="Storefront signs" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">SIGNS &amp; BANNERS</span><h3>Storefront Signs</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="signs" data-product-name="Window Signs" data-description="Printed window signage for storefronts, offices and retail spaces.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/window-signs.webp" alt="Window signs" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">SIGNS &amp; BANNERS</span><h3>Window Signs</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="signs" data-product-name="Wall Signs" data-description="Custom wall-mounted signage for offices, retail and business interiors.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Wall-signs.webp" alt="Wall signs" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">SIGNS &amp; BANNERS</span><h3>Wall Signs</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="signs" data-product-name="Floor Graphics" data-description="Custom floor graphics for retail promotions, wayfinding and events.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/floor-graphics.webp" alt="Floor graphics" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">SIGNS &amp; BANNERS</span><h3>Floor Graphics</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="signs" data-product-name="Directional Signs" data-description="Directional and wayfinding signs for businesses, campuses and events.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/directional-signs.webp" alt="Directional signs" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">SIGNS &amp; BANNERS</span><h3>Directional Signs</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="signs" data-product-name="Parking Signs" data-description="Parking and traffic information signs for commercial properties.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Parking-Signs.webp" alt="Parking signs" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">SIGNS &amp; BANNERS</span><h3>Parking Signs</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="signs" data-product-name="Safety Signs" data-description="Custom safety and informational signage for workplaces and facilities.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/safety-signs.webp" alt="Safety signs" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">SIGNS &amp; BANNERS</span><h3>Safety Signs</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="signs" data-product-name="Mesh Banners" data-description="Perforated mesh banners for outdoor displays and windy locations.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Mesh-Banner.webp" alt="Mesh banners" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">SIGNS &amp; BANNERS</span><h3>Mesh Banners</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="signs" data-product-name="Fabric Banners" data-description="Custom fabric banners for events, exhibitions and branded displays.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/fabric-banners.webp" alt="Fabric banners" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">SIGNS &amp; BANNERS</span><h3>Fabric Banners</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="signs" data-product-name="Feather Flags" data-description="Tall custom feather flags for storefronts, events and outdoor promotions.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/feather-flags.webp" alt="Feather flags" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">SIGNS &amp; BANNERS</span><h3>Feather Flags</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="signs" data-product-name="Teardrop Flags" data-description="Custom teardrop-shaped promotional flags for outdoor branding.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/teardrop-flags.webp" alt="Teardrop flags" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">SIGNS &amp; BANNERS</span><h3>Teardrop Flags</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="signs" data-product-name="Illuminated Signs" data-description="Illuminated business signage for high-visibility storefront and branding applications.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Illuminated-Signs.webp" alt="Illuminated signs" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">SIGNS &amp; BANNERS</span><h3>Illuminated Signs</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+
+
+
+
+      <!-- BUSINESS PRINTING -->
+
+      <article class="ig-product-card"
+        data-category="printing"
+        data-product-name="Business Cards"
+        data-description="Custom business cards to introduce your brand and make lasting connections.">
+
+        <button class="ig-product-card__button" type="button">
+          <div class="ig-product-card__image">
+            <img src="images/products/print-business-cards.webp"
+              alt="Custom business cards" loading="lazy">
+          </div>
+          <div class="ig-product-card__info">
+            <div>
+              <span class="ig-product-card__category">BUSINESS PRINTING</span>
+              <h3>Business Cards</h3>
+            </div>
+            <span class="ig-product-card__arrow">↗</span>
+          </div>
+        </button>
+      </article>
+
+
+      <article class="ig-product-card"
+        data-category="printing"
+        data-product-name="Flyers"
+        data-description="Custom flyers for business promotions, marketing campaigns and events.">
+
+        <button class="ig-product-card__button" type="button">
+          <div class="ig-product-card__image">
+            <img src="images/products/print-flyers.webp"
+              alt="Custom flyers" loading="lazy">
+          </div>
+          <div class="ig-product-card__info">
+            <div>
+              <span class="ig-product-card__category">BUSINESS PRINTING</span>
+              <h3>Flyers</h3>
+            </div>
+            <span class="ig-product-card__arrow">↗</span>
+          </div>
+        </button>
+      </article>
+
+
+      <article class="ig-product-card"
+        data-category="printing"
+        data-product-name="Brochures"
+        data-description="Custom brochures to present your services, products and business information.">
+
+        <button class="ig-product-card__button" type="button">
+          <div class="ig-product-card__image">
+            <img src="images/products/print-brochures.webp"
+              alt="Custom brochures" loading="lazy">
+          </div>
+          <div class="ig-product-card__info">
+            <div>
+              <span class="ig-product-card__category">BUSINESS PRINTING</span>
+              <h3>Brochures</h3>
+            </div>
+            <span class="ig-product-card__arrow">↗</span>
+          </div>
+        </button>
+      </article>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ==========================================
+     ADDITIONAL PRODUCT COLLECTION
+     APPEND INSIDE #ig-product-grid
+========================================== -->
+
+
+
+
+
+<!-- ==========================================
+     03. BUSINESS PRINTING — 17 ADDITIONAL
+========================================== -->
+
+<article class="ig-product-card" data-category="printing" data-product-name="Postcards" data-description="Custom postcards for direct mail, announcements and promotional campaigns.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Postcards.webp" alt="Postcards" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">BUSINESS PRINTING</span><h3>Postcards</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="printing" data-product-name="Rack Cards" data-description="Custom rack cards for tourism, hospitality and business promotions.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/rack-cards.webp" alt="Rack cards" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">BUSINESS PRINTING</span><h3>Rack Cards</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="printing" data-product-name="Door Hangers" data-description="Custom door hangers for local marketing, promotions and service businesses.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/door-hangers.webp" alt="Door hangers" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">BUSINESS PRINTING</span><h3>Door Hangers</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="printing" data-product-name="Booklets" data-description="Multi-page printed booklets for presentations, guides and company information.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Booklet.webp" alt="Booklets" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">BUSINESS PRINTING</span><h3>Booklets</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="printing" data-product-name="Product Catalogs" data-description="Printed product catalogs for showcasing products, collections and services.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Catalogue.webp" alt="Product catalogs" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">BUSINESS PRINTING</span><h3>Product Catalogs</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="printing" data-product-name="Restaurant Menus" data-description="Custom printed menus for restaurants, cafes and hospitality businesses.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/restaurant-menu.webp" alt="Restaurant menus" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">BUSINESS PRINTING</span><h3>Restaurant Menus</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="printing" data-product-name="Presentation Folders" data-description="Professional branded presentation folders for proposals and business meetings.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Presentation-Folders.webp" alt="Presentation folders" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">BUSINESS PRINTING</span><h3>Presentation Folders</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="printing" data-product-name="Letterheads" data-description="Custom branded letterheads for business correspondence and stationery.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Letterheads.webp" alt="Letterheads" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">BUSINESS PRINTING</span><h3>Letterheads</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="printing" data-product-name="Envelopes" data-description="Custom printed business envelopes with your company branding.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Envelopes.webp" alt="Printed envelopes" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">BUSINESS PRINTING</span><h3>Envelopes</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="printing" data-product-name="Notepads" data-description="Custom branded notepads for offices, businesses and promotional use.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Notepads.webp" alt="Custom notepads" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">BUSINESS PRINTING</span><h3>Notepads</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="printing" data-product-name="Invitations" data-description="Custom printed invitations for business events, celebrations and special occasions.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Invitations.webp" alt="Invitations" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">BUSINESS PRINTING</span><h3>Invitations</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="printing" data-product-name="Greeting Cards" data-description="Personalized greeting cards for businesses, holidays and special occasions.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/greeting-cards.webp" alt="Greeting cards" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">BUSINESS PRINTING</span><h3>Greeting Cards</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="printing" data-product-name="Posters" data-description="Custom posters for advertising, promotions, events and displays.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/posters.webp" alt="Printed posters" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">BUSINESS PRINTING</span><h3>Posters</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="printing" data-product-name="Calendars" data-description="Custom printed calendars for offices, customers and promotional gifting.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Calendars.webp" alt="Custom calendars" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">BUSINESS PRINTING</span><h3>Calendars</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="printing" data-product-name="Carbonless Forms" data-description="Multi-part carbonless forms for invoices, orders and business records.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Carbonless-Forms.webp" alt="Carbonless forms" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">BUSINESS PRINTING</span><h3>Carbonless Forms</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="printing" data-product-name="Tickets" data-description="Custom event tickets for admissions, raffles and special events.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Tickets.webp" alt="Printed tickets" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">BUSINESS PRINTING</span><h3>Tickets</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="printing" data-product-name="Table Tents" data-description="Folded tabletop displays for restaurants, events and promotional messaging.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/table-tents.webp" alt="Table tents" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">BUSINESS PRINTING</span><h3>Table Tents</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+
+<!-- ==========================================
+     04. PROMOTIONAL PRODUCTS — 18
+========================================== -->
+
+<article class="ig-product-card" data-category="promotional" data-product-name="Custom Pens" data-description="Branded pens for business promotion, customer gifts and events.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Branded Promotional Pens in Diagonal Arrangement.webp" alt="Custom pens" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">PROMOTIONAL</span><h3>Custom Pens</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="promotional" data-product-name="Keychains" data-description="Custom branded keychains for giveaways, events and promotional campaigns.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Branded Keychain Collection Showcase.webp" alt="Custom keychains" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">PROMOTIONAL</span><h3>Keychains</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="promotional" data-product-name="Branded Notebooks" data-description="Custom notebooks for corporate gifts, events and everyday business use.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/branded-notebooks.webp" alt="Branded notebooks" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">PROMOTIONAL</span><h3>Branded Notebooks</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="promotional" data-product-name="Water Bottles" data-description="Custom branded water bottles for teams, businesses and promotional events.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Water-Bottle.webp" alt="Custom water bottles" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">PROMOTIONAL</span><h3>Water Bottles</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="promotional" data-product-name="Tumblers" data-description="Branded tumblers for customer appreciation, teams and corporate gifts.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Tumbler.webp" alt="Custom tumblers" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">PROMOTIONAL</span><h3>Tumblers</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="promotional" data-product-name="Coffee Mugs" data-description="Custom printed mugs for branded merchandise and promotional gifting.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Custom-Mug.webp" alt="Custom coffee mugs" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">PROMOTIONAL</span><h3>Coffee Mugs</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="promotional" data-product-name="Tote Bags" data-description="Custom branded tote bags for events, retail and promotional giveaways.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Tote-Bag-Collection.webp" alt="Custom tote bags" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">PROMOTIONAL</span><h3>Tote Bags</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="promotional" data-product-name="Backpacks" data-description="Branded backpacks for schools, teams, businesses and promotional programs.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Backpack-Collection.webp" alt="Branded backpacks" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">PROMOTIONAL</span><h3>Backpacks</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="promotional" data-product-name="Drawstring Bags" data-description="Custom drawstring bags for events, sports teams and giveaways.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Drawstring-Bag-Collection.webp" alt="Drawstring bags" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">PROMOTIONAL</span><h3>Drawstring Bags</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="promotional" data-product-name="Lanyards" data-description="Custom printed lanyards for conferences, staff identification and events.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Lanyards.webp" alt="Custom lanyards" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">PROMOTIONAL</span><h3>Lanyards</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="promotional" data-product-name="Mouse Pads" data-description="Custom branded mouse pads for desks, offices and promotional gifts.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Mouse-Pads.webp" alt="Custom mouse pads" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">PROMOTIONAL</span><h3>Mouse Pads</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="promotional" data-product-name="Umbrellas" data-description="Branded umbrellas for business promotions and corporate gifting.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Umbrellas.webp" alt="Branded umbrellas" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">PROMOTIONAL</span><h3>Umbrellas</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="promotional" data-product-name="Custom Pencils" data-description="Personalized pencils for schools, offices and promotional events.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Custom-Pencil.webp" alt="Custom pencils" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">PROMOTIONAL</span><h3>Custom Pencils</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="promotional" data-product-name="Name Badges" data-description="Custom branded name badges for employees, conferences and events.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Name-Badges.webp" alt="Name badges" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">PROMOTIONAL</span><h3>Name Badges</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="promotional" data-product-name="Drinkware" data-description="Custom branded drinkware for events, staff gifts and promotional campaigns.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Drinkware-Collection.webp" alt="Branded drinkware" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">PROMOTIONAL</span><h3>Drinkware</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="promotional" data-product-name="Corporate Gift Sets" data-description="Branded gift combinations for employee recognition and client appreciation.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/corporate-gift-sets.webp" alt="Corporate gift sets" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">PROMOTIONAL</span><h3>Corporate Gift Sets</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="promotional" data-product-name="Branded Accessories" data-description="Custom branded accessories for promotional campaigns and business gifts.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Branded-Accessories.webp" alt="Branded accessories" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">PROMOTIONAL</span><h3>Branded Accessories</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+
+<!-- ==========================================
+     05. STICKERS & DECALS — 12
+========================================== -->
+
+<article class="ig-product-card" data-category="stickers" data-product-name="Kiss-Cut Stickers" data-description="Individually kiss-cut stickers supplied on a backing sheet for easy peeling.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/kiss-cut-stickers.webp" alt="Kiss cut stickers" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">STICKERS &amp; DECALS</span><h3>Kiss-Cut Stickers</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="stickers" data-product-name="Sticker Sheets" data-description="Multiple custom stickers arranged on convenient printed sheets.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Custom Sticker Collection Showcase.webp" alt="Sticker sheets" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">STICKERS &amp; DECALS</span><h3>Sticker Sheets</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="stickers" data-product-name="Vinyl Stickers" data-description="Custom vinyl stickers for branding, packaging and promotional applications.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Custom Sticker Collection Showcase.webp" alt="Vinyl stickers" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">STICKERS &amp; DECALS</span><h3>Vinyl Stickers</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="stickers" data-product-name="Product Labels" data-description="Custom product labels for packaging, branding and product identification.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Custom Labels and Packaging Display.webp" alt="Product labels" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">STICKERS &amp; DECALS</span><h3>Product Labels</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="stickers" data-product-name="Roll Labels" data-description="Custom labels supplied on rolls for product packaging and business use.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Custom Labels and Packaging Display.webp" alt="Roll labels" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">STICKERS &amp; DECALS</span><h3>Roll Labels</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="stickers" data-product-name="Packaging Stickers" data-description="Branded stickers for sealing packages, bags and product boxes.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Custom Labels and Packaging Display.webp" alt="Packaging stickers" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">STICKERS &amp; DECALS</span><h3>Packaging Stickers</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="stickers" data-product-name="Logo Decals" data-description="Custom logo decals for business branding, equipment and vehicles.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Vibrant Die-Cut Sticker Showcase.webp" alt="Logo decals" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">STICKERS &amp; DECALS</span><h3>Logo Decals</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="stickers" data-product-name="Wall Decals" data-description="Custom wall decals for offices, retail interiors and branded spaces.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Elite Auto Detailing Window Decal.webp" alt="Wall decals" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">STICKERS &amp; DECALS</span><h3>Wall Decals</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="stickers" data-product-name="Floor Decals" data-description="Custom floor decals for promotions, directional messaging and retail displays.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Elite Auto Detailing Window Decal.webp" alt="Floor decals" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">STICKERS &amp; DECALS</span><h3>Floor Decals</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="stickers" data-product-name="Vehicle Decals" data-description="Custom vehicle decals for cars, trucks, trailers and commercial fleets.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/IG Custom Printing Car Wrap Mockup.webp" alt="Vehicle decals" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">STICKERS &amp; DECALS</span><h3>Vehicle Decals</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="stickers" data-product-name="Perforated Window Graphics" data-description="Perforated one-way window graphics for storefronts and vehicle windows.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Elite Auto Detailing Window Decal.webp" alt="Perforated window graphics" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">STICKERS &amp; DECALS</span><h3>Perforated Window Graphics</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+
+<!-- ==========================================
+     06. EVENT & TRADE SHOW — 10
+========================================== -->
+
+<article class="ig-product-card" data-category="events" data-product-name="Step & Repeat Backdrops" data-description="Branded step-and-repeat backdrops for photo opportunities, events and press displays.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Custom Printing Vinyl Banner Display.webp" alt="Step and repeat backdrop" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">EVENT &amp; TRADE SHOW</span><h3>Step &amp; Repeat Backdrops</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="events" data-product-name="Trade Show Displays" data-description="Branded display graphics for exhibitions, conventions and trade shows.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Custom Printing Vinyl Banner Display.webp" alt="Trade show displays" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">EVENT &amp; TRADE SHOW</span><h3>Trade Show Displays</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="events" data-product-name="Pop-Up Displays" data-description="Portable pop-up display systems for exhibitions and promotional events.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Bold Black and Orange Banner Mockup.webp" alt="Pop up displays" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">EVENT &amp; TRADE SHOW</span><h3>Pop-Up Displays</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="events" data-product-name="Exhibition Graphics" data-description="Custom exhibition graphics for branded booths and event spaces.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Custom Printing Vinyl Banner Display.webp" alt="Exhibition graphics" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">EVENT &amp; TRADE SHOW</span><h3>Exhibition Graphics</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="events" data-product-name="Branded Table Covers" data-description="Custom printed table covers for trade shows, conferences and events.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Custom Printing Vinyl Banner Display.webp" alt="Branded table covers" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">EVENT &amp; TRADE SHOW</span><h3>Branded Table Covers</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="events" data-product-name="Table Runners" data-description="Custom branded table runners for displays, events and promotional setups.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Custom Printing Vinyl Banner Display.webp" alt="Table runners" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">EVENT &amp; TRADE SHOW</span><h3>Table Runners</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="events" data-product-name="Display Stands" data-description="Portable display stands for events, retail and promotional presentations.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Bold Black and Orange Banner Mockup.webp" alt="Display stands" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">EVENT &amp; TRADE SHOW</span><h3>Display Stands</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="events" data-product-name="Event Banners" data-description="Custom banners for conferences, festivals, celebrations and business events.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Custom Printing Vinyl Banner Display.webp" alt="Event banners" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">EVENT &amp; TRADE SHOW</span><h3>Event Banners</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="events" data-product-name="Event Flags" data-description="Branded event flags for outdoor promotions and event identification.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Bold Black and Orange Banner Mockup.webp" alt="Event flags" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">EVENT &amp; TRADE SHOW</span><h3>Event Flags</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="events" data-product-name="Promotional Booth Graphics" data-description="Custom graphics for branded event booths and exhibition spaces.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Custom Printing Vinyl Banner Display.webp" alt="Promotional booth graphics" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">EVENT &amp; TRADE SHOW</span><h3>Promotional Booth Graphics</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+
+<!-- ==========================================
+     07. VEHICLE GRAPHICS — 8
+========================================== -->
+
+<article class="ig-product-card" data-category="vehicle" data-product-name="Full Vehicle Wraps" data-description="Full custom vehicle wraps for business branding and fleet advertising.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/IG Custom Printing Car Wrap Mockup.webp" alt="Full vehicle wraps" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">VEHICLE GRAPHICS</span><h3>Full Vehicle Wraps</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="vehicle" data-product-name="Partial Vehicle Wraps" data-description="Partial vehicle wraps for impactful branded graphics and advertising.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/IG Custom Printing Car Wrap Mockup.webp" alt="Partial vehicle wraps" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">VEHICLE GRAPHICS</span><h3>Partial Vehicle Wraps</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="vehicle" data-product-name="Commercial Fleet Graphics" data-description="Consistent branded graphics for company vehicles and commercial fleets.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/IG Custom Printing Car Wrap Mockup.webp" alt="Fleet graphics" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">VEHICLE GRAPHICS</span><h3>Fleet Graphics</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="vehicle" data-product-name="Vehicle Lettering" data-description="Custom cut lettering for company vehicles, trucks and service vans.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/IG Custom Printing Car Wrap Mockup.webp" alt="Vehicle lettering" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">VEHICLE GRAPHICS</span><h3>Vehicle Lettering</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="vehicle" data-product-name="Truck Graphics" data-description="Custom truck graphics for commercial branding and mobile advertising.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/IG Custom Printing Car Wrap Mockup.webp" alt="Truck graphics" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">VEHICLE GRAPHICS</span><h3>Truck Graphics</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="vehicle" data-product-name="Trailer Graphics" data-description="Custom trailer graphics for business advertising and fleet identification.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/IG Custom Printing Car Wrap Mockup.webp" alt="Trailer graphics" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">VEHICLE GRAPHICS</span><h3>Trailer Graphics</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="vehicle" data-product-name="Perforated Vehicle Window Graphics" data-description="Perforated window graphics for branded vehicle windows and mobile advertising.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Elite Auto Detailing Window Decal.webp" alt="Vehicle window graphics" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">VEHICLE GRAPHICS</span><h3>Vehicle Window Graphics</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="vehicle" data-product-name="Magnetic Vehicle Signs" data-description="Removable magnetic signs for cars, trucks and service vehicles.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/IG Custom Printing Car Wrap Mockup.webp" alt="Magnetic vehicle signs" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">VEHICLE GRAPHICS</span><h3>Magnetic Vehicle Signs</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+
+<!-- ==========================================
+     08. EMBROIDERY & TEAMWEAR — 12
+========================================== -->
+
+<article class="ig-product-card" data-category="embroidery" data-product-name="Embroidered Polo Shirts" data-description="Embroidered polo shirts for professional uniforms and company branding.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/apparel-polo.webp" alt="Embroidered polo shirts" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">EMBROIDERY &amp; TEAMWEAR</span><h3>Embroidered Polos</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="embroidery" data-product-name="Embroidered Caps" data-description="Custom embroidered caps for businesses, teams and promotional branding.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/why-apparel.webp" alt="Embroidered caps" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">EMBROIDERY &amp; TEAMWEAR</span><h3>Embroidered Caps</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="embroidery" data-product-name="Embroidered Jackets" data-description="Custom embroidered jackets for business uniforms and team apparel.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Palmetto Construction Jacket Mockup.webp" alt="Embroidered jackets" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">EMBROIDERY &amp; TEAMWEAR</span><h3>Embroidered Jackets</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="embroidery" data-product-name="Embroidered Hoodies" data-description="Custom embroidered hoodies for teams, organizations and businesses.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/apparel-hoodie.webp" alt="Embroidered hoodies" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">EMBROIDERY &amp; TEAMWEAR</span><h3>Embroidered Hoodies</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="embroidery" data-product-name="Embroidered Work Shirts" data-description="Professional embroidered work shirts for employees and service teams.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Black Custom Printing Shirt Mockup.webp" alt="Embroidered work shirts" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">EMBROIDERY &amp; TEAMWEAR</span><h3>Embroidered Work Shirts</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="embroidery" data-product-name="Embroidered Beanies" data-description="Custom embroidered beanies for branded winter apparel and teamwear.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/why-apparel.webp" alt="Embroidered beanies" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">EMBROIDERY &amp; TEAMWEAR</span><h3>Embroidered Beanies</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="embroidery" data-product-name="Embroidered Sweatshirts" data-description="Branded embroidered sweatshirts for teams and corporate apparel.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/apparel-hoodie.webp" alt="Embroidered sweatshirts" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">EMBROIDERY &amp; TEAMWEAR</span><h3>Embroidered Sweatshirts</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="embroidery" data-product-name="Team Uniforms" data-description="Coordinated custom team uniforms for clubs, organizations and businesses.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/apparel-polo.webp" alt="Team uniforms" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">EMBROIDERY &amp; TEAMWEAR</span><h3>Team Uniforms</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="embroidery" data-product-name="Embroidered Bags" data-description="Custom embroidered bags for teams, businesses and promotional programs.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/Branded Notebooks Studio Display.webp" alt="Embroidered bags" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">EMBROIDERY &amp; TEAMWEAR</span><h3>Embroidered Bags</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="embroidery" data-product-name="Sports Team Apparel" data-description="Coordinated apparel for sports teams, leagues and athletic organizations.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/apparel-tshirt.webp" alt="Sports team apparel" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">EMBROIDERY &amp; TEAMWEAR</span><h3>Sports Team Apparel</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="embroidery" data-product-name="Corporate Uniforms" data-description="Branded corporate uniforms for professional teams and businesses.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/apparel-polo.webp" alt="Corporate uniforms" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">EMBROIDERY &amp; TEAMWEAR</span><h3>Corporate Uniforms</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<article class="ig-product-card" data-category="embroidery" data-product-name="Custom Team Jerseys" data-description="Personalized team jerseys for sports clubs, leagues and organizations.">
+  <button class="ig-product-card__button" type="button"><div class="ig-product-card__image"><img src="images/products/apparel-tshirt.webp" alt="Custom team jerseys" loading="lazy"></div><div class="ig-product-card__info"><div><span class="ig-product-card__category">EMBROIDERY &amp; TEAMWEAR</span><h3>Custom Team Jerseys</h3></div><span class="ig-product-card__arrow">↗</span></div></button>
+</article>
+
+<!-- END ADDITIONAL PRODUCT COLLECTION -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     </div>
 
 
-    <!-- NO SEARCH RESULTS MESSAGE -->
+    <!-- NO RESULTS -->
     <div class="ig-product-empty" id="ig-product-empty" hidden>
-
-      <h3>No products found.</h3>
-
-      <p>
-        Try another search or choose a different category.
-      </p>
-
+      <span>⌕</span>
+      <h3>No products found</h3>
+      <p>Try another search or explore a different category.</p>
     </div>
 
+  </div>
 
-    <p class="ig-product-disclaimer">
-      Demo collection: product images and prices are illustrative
-      and will be updated before launch.
-    </p>
-
-  </section>
+</section>
 
 
-  <!-- =========================================
-       CUSTOM ORDER CTA
-  ========================================== -->
-  <section class="ig-catalog-cta">
+<!-- PRODUCT DETAIL MODAL
+     JavaScript will populate this later. -->
 
-    <div class="ig-catalog-cta__content">
+<div class="ig-product-modal" id="ig-product-modal" aria-hidden="true">
 
-      <span class="ig-section-eyebrow">
-        <span></span>
-        HAVE A PROJECT IN MIND?
-      </span>
+  <div class="ig-product-modal__overlay" data-close-modal></div>
 
-      <h2>
-        Let's make something
-        <span>worth noticing.</span>
-      </h2>
+  <div class="ig-product-modal__panel"
+       role="dialog"
+       aria-modal="true"
+       aria-labelledby="ig-modal-title">
 
-      <p>
-        Need a special size, a custom finish, or a product you
-        don't see here? Tell us what you have in mind.
-      </p>
+    <button class="ig-product-modal__close"
+      type="button"
+      data-close-modal
+      aria-label="Close product details">×</button>
 
-      <a href="#contact" class="ig-catalog-cta__button">
-        Talk to Our Team
-        <span aria-hidden="true">↗</span>
+    <div class="ig-product-modal__image">
+      <img id="ig-modal-image" src="" alt="">
+    </div>
+
+    <div class="ig-product-modal__content">
+      <span id="ig-modal-category"></span>
+      <h2 id="ig-modal-title">Product Name</h2>
+      <p id="ig-modal-description"></p>
+
+      <div id="ig-modal-details"></div>
+
+      <a id="ig-modal-quote"
+         href="mailto:sales@igteam.com?subject=Product%20Quote"
+         class="ig-product-modal__quote">
+        Request a Quote <span>↗</span>
       </a>
-
     </div>
 
-    <div class="ig-catalog-cta__details">
+  </div>
+</div>
 
-      <div class="ig-catalog-cta__detail">
-        <span>01</span>
-        <p>
-          <strong>Custom options</strong>
-          <small>Made around your requirements</small>
-        </p>
-      </div>
 
-      <div class="ig-catalog-cta__detail">
-        <span>02</span>
-        <p>
-          <strong>Bulk orders welcome</strong>
-          <small>Ask about quantity pricing</small>
-        </p>
-      </div>
 
-      <div class="ig-catalog-cta__detail">
-        <span>03</span>
-        <p>
-          <strong>Local support</strong>
-          <small>Here to help with your project</small>
-        </p>
-      </div>
 
-    </div>
 
-  </section>
+
+
+
+
+
+
+
+
 
 </main>
 
